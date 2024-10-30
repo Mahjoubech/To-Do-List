@@ -181,6 +181,29 @@ body {
 2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
 3. Ensure horizontal rules are visible by default.
 */
+.scrollBar{
+  margin-bottom: 18px;
+}
+.scrollBar::-webkit-scrollbar {
+  display: none;
+}
+
+.spaceClass {
+    height: 87%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.marginTop{
+  margin-top: 60px;
+}
+
+.gridrows{
+  grid-template-rows: 500px;
+}
+
 
 hr {
   height: 0;
@@ -558,6 +581,10 @@ video {
   position: fixed;
 }
 
+.relative {
+  position: relative;
+}
+
 .sticky {
   position: sticky;
 }
@@ -684,6 +711,14 @@ video {
   margin-top: 2px;
 }
 
+.mb-\[300px\] {
+  margin-bottom: 300px;
+}
+
+.mt-20 {
+  margin-top: 5rem;
+}
+
 .block {
   display: block;
 }
@@ -758,6 +793,10 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.max-h-\[70vh\] {
+  max-height: 70vh;
 }
 
 .w-0 {
@@ -1042,6 +1081,11 @@ video {
   background-color: rgb(254 240 138 / var(--tw-bg-opacity));
 }
 
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1286,6 +1330,11 @@ video {
 .hover\:bg-red-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(185 28 28 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-blue-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
 
 .focus\:outline-none:focus {

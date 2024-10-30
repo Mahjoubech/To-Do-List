@@ -1,281 +1,447 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-  />
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css"
-/>
-    <title>Document</title>
-    
-    <link rel="stylesheet" href="./page/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" />
+  <title>Document</title>
+
+  <link rel="stylesheet" href="./page/style.css">
 </head>
+
 <body class="bg-lightPurple  text-white font-sans">
   <!-------HEADER----------------->
-    <header class="  bg-customPurple flex justify-around items-center w-full h-20 ">
-      <img class="bg-slate w-40 h-45 ml-8" src="../img/logo.png" alt="">
-        <h1 class="font-semibold  text-6xl font-quicksand ">To Do List</h1>
-        <div id="search" class="group cursor-pointer flex justify-center items-center rounded-lg shadow-lg h-10 w-2/5 bg-white rounded-">
-          <input class="bg-transparent m-0 w-0 outline-none rounded-none  transition-all duration-[800ms]  group-hover:w-[90%]   text-black" type="text" placeholder="Search" />
-          <a href="#">
-            <i class="fas fa-search fonts  text-stone-500  text-xl"></i>
-          </a>
-        </div>
-      </header>
-      <!--Hover kamlo-->
-   <div class=" w-full h-screen grid grid-cols-[400px_1fr]" id="Container">
-     <!------ Menu ------------->
-        <div class="bg-customPurple  flex justify-center">
-          <!------- card Menu ------------->
-          <div class="bg-colorpur w-[70%] h-[90%] flex flex-col justify-start rounded-xl ">
-           <!----- Dev Menu -------->
-            <div class="  rounded-xl flex justify-between p-2">
-              <h3 class="font-quicksand text-xl">Menu</h3>
-              <i class=" cursor-pointer fa-solid fa-ellipsis  text-white  text-3xl transition-all duration-[500ms] hover:scale-105"></i>
-              
-            </div>
-            <!--------- Dev Upcoming today calander -------------->
-            <div class="">
-              <h4 class="font-quicksand text-lg ml-5 ">Tasks</h4>
-              <ul class="mt-4 space-y-2 flex flex-col items-center gap-2">
-                <li class="cursor-pointer flex items-center justify-around rounded-xl py-4 w-[90%] bg-customPurple  hover:bg-purple-800 transition-all duration-[500ms] hover:scale-105">
-                  <i class="fas fa-arrow-right"></i>
-                  <h5>Upcoming </h5>
-                  <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">12</span>
-                </li>
-                <li class="cursor-pointer flex items-center justify-around rounded-xl py-4 w-[90%] bg-customPurple  hover:bg-purple-800 transition-all duration-[500ms] hover:scale-105">
-                  <i class="fa-solid fa-calendar-week"></i>
-                  <h5>Today </h5>
-                  <span class="ml-9 bg-gray-700 text-white rounded-full px-2 py-1 text-xs">8</span>
-                </li>
-                <li class="cursor-pointer flex items-center justify-around rounded-xl py-4 w-[90%] bg-customPurple  hover:bg-purple-800 transition-all duration-[500ms] hover:scale-105">
-                  <i class="fa-solid fa-calendar-days "></i>
-                  <h5 class="mr-20">Calander </h5>    
-                </li>
-              </ul>
-            </div>
-               <!----DEV Periority-->
-               <div class="  w-[95%] h-[45%] mx-2  my-4">
-                <h4 class="font-quicksand text-lg ml-3 ">Lists</h4>
-                <ul class="mt-4 space-y-2 flex flex-col items-center gap-2">
-                  <li class="cursor-pointer flex items-center justify-around rounded-xl py-1 w-[90%] h-[35px] bg-customPurple  hover:bg-purple-800 transition-all duration-[500ms] hover:scale-105">
-                    <h3 class="bg-red-300 border-2 border-red-700 w-10   rounded-2xl text-center text-red-700 font-medium">P1</h3>
-                    <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">12</span>
-                  </li>
-                  <li class="cursor-pointer flex items-center justify-around rounded-xl py-1 w-[90%] h-[35px] bg-customPurple  hover:bg-purple-800 transition-all duration-[500ms] hover:scale-105">
-                    <h3 class="bg-yellow-200 border-2 border-yellow-600 w-10   rounded-2xl text-center text-orange-700 font-medium">P2</h3>
-                    <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">12</span>
-                  </li>
-                  <li class="cursor-pointer flex items-center justify-around rounded-xl py-1 w-[90%] h-[35px] bg-customPurple  hover:bg-purple-800 transition-all duration-[500ms] hover:scale-105">
-                    <h3 class="bg-green-200 border-2 border-green-700 w-10   rounded-2xl text-center text-green-700 font-medium">P3</h3>
-                    <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">12</span>
-                  </li>
-                  <div class="bg-Butn hover:bg-purple-800 cursor-pointer w-[90%] h-[50px] flex items-center justify-center text-[24px] font-quicksand rounded-2xl transition-all duration-[500ms] hover:scale-105">
-                    <span class="text-4xl mr-9">+</span>
-                    <h4 class="mr-12">Add List</h4>
-                  </div>
-          
-               </div>
-          </div>
-        </div>
-        <!------- TO DO LISTS-->
-        <!-- <div class=" grid grid-cols-[30%_30%_30%]  justify-around items-center  text-center h-auto"> -->
-   <div class=" ">
-                  <div class="grid grid-cols-[30%_30%_30%]  justify-around items-center  text-center mt-3">
-                    <div class=" flex  items-center bg-Butn w-[100%] p-3 rounded-tr-xl rounded-tl-xl h-[50px]">
-                      <h6 class="bg-orange-600 w-4 rounded-[50%] text-center border-[4px]  h-4  border-red-900 ml-2"></h6>
-                      <h4 class=" ml-5 text-[20px] font-quicksand">To Do</h4>
-                    </div>
-                    <div class="z-10 sticky top-0 flex  items-center bg-Butn w-[100%] p-3 rounded-tr-xl rounded-tl-xl h-[50px]">
-                      <h6 class="bg-blue-300 w-4 rounded-[50%] text-center border-[4px]  h-4  border-blue-900 ml-2"></h6>
-                    <h4 class=" ml-5 text-[20px] font-quicksand">Doing</h4>
-                   </div>
-                    <div class="z-10 sticky top-0 flex  items-center bg-Butn w-[100%] p-3 rounded-tr-xl rounded-tl-xl h-[50px]">
-                      <h6 class="bg-green-300 w-4 rounded-[50%] text-center border-[4px]  h-4  border-green-900 ml-2"></h6>
-                     <h4 class=" ml-5 text-[20px] font-quicksand">Done</h4>
-                    </div>
+  <header class=" bg-customPurple flex justify-around items-center w-full h-20">
+    <img class="bg-slate w-40 h-45 ml-8" src="../img/logo.png" alt="">
+    <h1 class="font-semibold  text-6xl font-quicksand ">To Do List</h1>
+    <div id="search"
+      class="group cursor-pointer flex justify-center items-center rounded-lg shadow-lg h-10 w-2/5 bg-white rounded-">
+      <input
+        class="bg-transparent m-0 w-0 outline-none rounded-none  transition-all duration-[800ms]  group-hover:w-[90%]   text-black"
+        type="text" placeholder="Search" />
+      <a href="#">
+        <i class="fas fa-search fonts  text-stone-500  text-xl"></i>
+      </a>
+    </div>
+  </header>
+  <!--Hover kamlo-->
+  <div class=" w-full h-screen grid grid-cols-[400px_1fr]" id="Container">
+    <!------ Menu ------------->
+    <div class="bg-customPurple flex justify-center">
+      <!------- card Menu ------------->
+      <div class="bg-colorpur w-[70%] h-[90%] flex flex-col justify-start rounded-xl ">
+        <!----- Dev Menu -------->
+        <div class="  rounded-xl flex justify-between p-2">
+          <h3 class="font-quicksand text-xl">Menu</h3>
+          <i
+            class=" cursor-pointer fa-solid fa-ellipsis  text-white  text-3xl transition-all duration-[500ms] hover:scale-105"></i>
 
-                    </div>
-                  <!-------- list ------------>
-    <div class="grid grid-cols-[30%_30%_30%]  justify-around items-start  text-center ">
-                    <!----Creation List toDo ----------->
+        </div>
+        <!--------- Dev Upcoming today calander -------------->
+        <div class="">
+          <h4 class="font-quicksand text-lg ml-5 ">Tasks</h4>
+          <ul class="mt-4 space-y-2 flex flex-col items-center gap-2">
+            <li
+              class="cursor-pointer flex items-center justify-around rounded-xl py-4 w-[90%] bg-customPurple  hover:bg-purple-800 transition-all duration-[500ms] hover:scale-105">
+              <i class="fas fa-arrow-right"></i>
+              <h5>Upcoming </h5>
+              <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">12</span>
+            </li>
+            <li
+              class="cursor-pointer flex items-center justify-around rounded-xl py-4 w-[90%] bg-customPurple  hover:bg-purple-800 transition-all duration-[500ms] hover:scale-105">
+              <i class="fa-solid fa-calendar-week"></i>
+              <h5>Today </h5>
+              <span class="ml-9 bg-gray-700 text-white rounded-full px-2 py-1 text-xs">8</span>
+            </li>
+            <li
+              class="cursor-pointer flex items-center justify-around rounded-xl py-4 w-[90%] bg-customPurple  hover:bg-purple-800 transition-all duration-[500ms] hover:scale-105">
+              <i class="fa-solid fa-calendar-days "></i>
+              <h5 class="mr-20">Calander </h5>
+            </li>
+          </ul>
+        </div>
+        <!----DEV Periority-->
+        <div class="  w-[95%] h-[45%] mx-2  my-4">
+          <h4 class="font-quicksand text-lg ml-3 ">Lists</h4>
+          <ul class="mt-4 space-y-2 flex flex-col items-center gap-2">
+            <li
+              class="cursor-pointer flex items-center justify-around rounded-xl py-1 w-[90%] h-[35px] bg-customPurple  hover:bg-purple-800 transition-all duration-[500ms] hover:scale-105">
+              <h3 class="bg-red-300 border-2 border-red-700 w-10   rounded-2xl text-center text-red-700 font-medium">P1
+              </h3>
+              <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">12</span>
+            </li>
+            <li
+              class="cursor-pointer flex items-center justify-around rounded-xl py-1 w-[90%] h-[35px] bg-customPurple  hover:bg-purple-800 transition-all duration-[500ms] hover:scale-105">
+              <h3
+                class="bg-yellow-200 border-2 border-yellow-600 w-10   rounded-2xl text-center text-orange-700 font-medium">
+                P2</h3>
+              <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">12</span>
+            </li>
+            <li
+              class="cursor-pointer flex items-center justify-around rounded-xl py-1 w-[90%] h-[35px] bg-customPurple  hover:bg-purple-800 transition-all duration-[500ms] hover:scale-105">
+              <h3
+                class="bg-green-200 border-2 border-green-700 w-10   rounded-2xl text-center text-green-700 font-medium">
+                P3</h3>
+              <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">12</span>
+            </li>
+            <div
+              class="bg-Butn hover:bg-purple-800 cursor-pointer w-[90%] h-[50px] flex items-center justify-center text-[24px] font-quicksand rounded-2xl transition-all duration-[500ms] hover:scale-105">
+              <span class="text-4xl mr-9">+</span>
+              <h4 class="mr-12">Add List</h4>
+            </div>
 
-         <div class=" bg-customPurple overflow-auto scrollCard flex flex-col justify-center items-center   rounded-bl-2xl rounded-br-2xl   h-[70] mb-[150px]">
-            <!------- Title list --------->
-           <!---------- List ToDo ------------>
-            <!------------- Card the Task --------->
-            <div class="bg-cardsColor w-[95%]  mt-3 h-[125px] rounded-xl border-[1px] shadow-xl border-black">
+        </div>
+      </div>
+    </div>
+
+    <!----------------pareeent mkhalwd  ---------------------->
+    <div class="marginTop">
+      <div class="grid grid-cols-[30%_30%_30%] gridrows justify-around text-center ">
+        <!----Creation List toDo ----------->
+        <div
+        class="bg-customPurple rounded-2xl flex flex-col justify-between heightCard">
+        <!------- Title list --------->
+        <div class=" flex  items-center bg-Butn w-[100%] p-3 rounded-tr-xl rounded-tl-xl h-[50px]">
+          <h6 class="bg-orange-600 w-4 rounded-[50%] text-center border-[4px]  h-4  border-red-900 ml-2"></h6>
+          <h4 class=" ml-5 text-[20px] font-quicksand">To Do</h4>
+        </div>
+        <!------------- Card the Task --------->
+        <div class="spaceClass">
+          <div class="flex flex-col items-center h-full overflow-auto scrollBar mb-[20px]">
+            <div class="bg-cardsColor w-[95%] h-5/6 mt-1 rounded-xl border-[1px] shadow-xl border-black">
               <!------- title task ---------->
-               <div class="flex items-center justify-around">
+              <div class="flex items-center justify-around">
                 <h3 class="mr-3 text-[18px]">Page Home Header</h3>
-                <i class=" cursor-pointer fa-solid fa-ellipsis  text-indigo-950 ml-28  text-1xl transition-all duration-[500ms] hover:scale-105"></i>
-               </div>
-               <!----Description-->
-               <div class="mt-1 w-full h-[60px] text-[13px] text-descpcolor text-start ml-1">
-                <h6>This my page Home Header I creat It's Deffuclte and harder for no fucking resean Lorem ipsum dolor sit ametrepudiandae praesentium?</h6>
-               </div>
-               <!----- Periority ----->
-               <div class="mt-[2px] h-7 flex justify-around items-center">
-                <h3 class="bg-red-300 border-2 border-red-700 w-10 h-[23px]  rounded-2xl text-center text-red-700 text-[13px] font-medium">P1</h3>
-                <h3 class="ml-32"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">22 Oct</span></h3>
-
-               </div>
+                <i
+                  class=" cursor-pointer fa-solid fa-ellipsis  text-indigo-950 ml-28  text-1xl transition-all duration-[500ms] hover:scale-105"></i>
+              </div>
+              <!----Description-->
+              <div class="mt-1 w-full h-[60px] text-[13px] text-descpcolor text-start ml-1">
+                <h6>This my page Home Header I creat It's Deffuclte and harder for no fucking resean Lorem ipsum dolor sit
+                  ametrepudiandae praesentium?</h6>
+              </div>
+              <!----- Periority ----->
+              <div class="mt-[2px] h-7 flex justify-around items-center">
+                <h3
+                class="bg-red-300 border-2 border-red-700 w-10 h-[23px]  rounded-2xl text-center text-red-700 text-[13px] font-medium">
+                P1</h3>
+                <h3 class="ml-32"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">28 Oct</span>
+                </h3>
+  
+              </div>
             </div>
-            
-             
-            <!-- ------Button Ajouter Task toDo ----------
-            <div class=" bg-Butn  hover:bg-purple-800 cursor-pointer w-full h-[40px] mt-6 flex items-center justify-center text-[18px] font-quicksand rounded-bl-2xl rounded-br-2xl  transition-all duration-[500ms] " onclick="openAjout()">
-              <span class="text-3xl mr-4">+</span>
-              <h4 class="mr-[200px]">Add item</h4>
-            </div> -->
-         </div> 
 
+            <div class="bg-cardsColor w-[95%] h-5/6 mt-3 rounded-xl border-[1px] shadow-xl border-black">
+              <!------- title task ---------->
+              <div class="flex items-center justify-around">
+                <h3 class="mr-3 text-[18px]">Page Home Header</h3>
+                <i
+                  class=" cursor-pointer fa-solid fa-ellipsis  text-indigo-950 ml-28  text-1xl transition-all duration-[500ms] hover:scale-105"></i>
+              </div>
+              <!----Description-->
+              <div class="mt-1 w-full h-[60px] text-[13px] text-descpcolor text-start ml-1">
+                <h6>This my page Home Header I creat It's Deffuclte and harder for no fucking resean Lorem ipsum dolor sit
+                  ametrepudiandae praesentium?</h6>
+              </div>
+              <!----- Periority ----->
+              <div class="mt-[2px] h-7 flex justify-around items-center">
+                <h3
+                  class="bg-green-200 border-2 border-green-700  w-10 h-[23px]  rounded-2xl text-center text-green-700 text-[13px] font-medium">
+                  P2</h3>
+                <h3 class="ml-32"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">28 Oct</span>
+                </h3>
+  
+              </div>
+            </div>
 
-         <!---------- Creation List Doing ------------->
-         <div class=" bg-customPurple overflow-y-auto flex flex-col justify-center items-center   rounded-bl-2xl rounded-br-2xl    ">
-          <!------- Title list --------->
-          
-          <!------------- Card the Task --------->
-          <div class="bg-cardsColor w-[95%]  mt-3 h-[125px] rounded-xl border-[1px] shadow-xl border-black">
-            <!------- title task ---------->
-             <div class="flex items-center justify-around">
-              <h3 class="mr-3 text-[18px]">Page Home Header</h3>
-              <i class=" cursor-pointer fa-solid fa-ellipsis  text-indigo-950 ml-28  text-1xl transition-all duration-[500ms] hover:scale-105"></i>
-             </div>
-             <!----Description-->
-             <div class="mt-1 w-full h-[60px] text-[13px] text-descpcolor text-start ml-1">
-              <h6>This my page Home Header I creat It's Deffuclte and harder for no fucking resean Lorem ipsum dolor sit ametrepudiandae praesentium?</h6>
-             </div>
-             <!----- Periority ----->
-             <div class="mt-[2px] h-7 flex justify-around items-center">
-              <h3 class="bg-yellow-200 border-2 border-yellow-600   w-10 h-[23px]  rounded-2xl text-center text-orange-700 text-[13px] font-medium">P2</h3>
-              <h3 class="ml-32"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">28 Oct</span></h3>
-
-             </div>
+            <div class="bg-cardsColor w-[95%] h-5/6 mt-3 rounded-xl border-[1px] shadow-xl border-black">
+              <!------- title task ---------->
+              <div class="flex items-center justify-around">
+                <h3 class="mr-3 text-[18px]">Page Home Header</h3>
+                <i
+                  class=" cursor-pointer fa-solid fa-ellipsis  text-indigo-950 ml-28  text-1xl transition-all duration-[500ms] hover:scale-105"></i>
+              </div>
+              <!----Description-->
+              <div class="mt-1 w-full h-[60px] text-[13px] text-descpcolor text-start ml-1">
+                <h6>This my page Home Header I creat It's Deffuclte and harder for no fucking resean Lorem ipsum dolor sit
+                  ametrepudiandae praesentium?</h6>
+              </div>
+              <!----- Periority ----->
+              <div class="mt-[2px] h-7 flex justify-around items-center">
+                <h3
+                  class="bg-green-200 border-2 border-green-700  w-10 h-[23px]  rounded-2xl text-center text-green-700 text-[13px] font-medium">
+                  P2</h3>
+                <h3 class="ml-32"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">28 Oct</span>
+                </h3>
+  
+              </div>
+            </div>
+            <div class="bg-cardsColor w-[95%] h-5/6 mt-3 rounded-xl border-[1px] shadow-xl border-black">
+              <!------- title task ---------->
+              <div class="flex items-center justify-around">
+                <h3 class="mr-3 text-[18px]">Page Home Header</h3>
+                <i
+                  class=" cursor-pointer fa-solid fa-ellipsis  text-indigo-950 ml-28  text-1xl transition-all duration-[500ms] hover:scale-105"></i>
+              </div>
+              <!----Description-->
+              <div class="mt-1 w-full h-[60px] text-[13px] text-descpcolor text-start ml-1">
+                <h6>This my page Home Header I creat It's Deffuclte and harder for no fucking resean Lorem ipsum dolor sit
+                  ametrepudiandae praesentium?</h6>
+              </div>
+              <!----- Periority ----->
+              <div class="mt-[2px] h-7 flex justify-around items-center">
+                <h3
+                  class="bg-green-200 border-2 border-green-700  w-10 h-[23px]  rounded-2xl text-center text-green-700 text-[13px] font-medium">
+                  P2</h3>
+                <h3 class="ml-32"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">28 Oct</span>
+                </h3>
+  
+              </div>
+            </div>
+            <div class="bg-cardsColor w-[95%] h-5/6 mt-3 rounded-xl border-[1px] shadow-xl border-black">
+              <!------- title task ---------->
+              <div class="flex items-center justify-around">
+                <h3 class="mr-3 text-[18px]">Page Home Header</h3>
+                <i
+                  class=" cursor-pointer fa-solid fa-ellipsis  text-indigo-950 ml-28  text-1xl transition-all duration-[500ms] hover:scale-105"></i>
+              </div>
+              <!----Description-->
+              <div class="mt-1 w-full h-[60px] text-[13px] text-descpcolor text-start ml-1">
+                <h6>This my page Home Header I creat It's Deffuclte and harder for no fucking resean Lorem ipsum dolor sit
+                  ametrepudiandae praesentium?</h6>
+              </div>
+              <!----- Periority ----->
+              <div class="mt-[2px] h-7 flex justify-around items-center">
+                <h3
+                  class="bg-green-200 border-2 border-green-700  w-10 h-[23px]  rounded-2xl text-center text-green-700 text-[13px] font-medium">
+                  P2</h3>
+                <h3 class="ml-32"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">28 Oct</span>
+                </h3>
+  
+              </div>
+            </div>
+            <div class="bg-cardsColor w-[95%] h-5/6 mt-3 rounded-xl border-[1px] shadow-xl border-black">
+              <!------- title task ---------->
+              <div class="flex items-center justify-around">
+                <h3 class="mr-3 text-[18px]">Page Home Header</h3>
+                <i
+                  class=" cursor-pointer fa-solid fa-ellipsis  text-indigo-950 ml-28  text-1xl transition-all duration-[500ms] hover:scale-105"></i>
+              </div>
+              <!----Description-->
+              <div class="mt-1 w-full h-[60px] text-[13px] text-descpcolor text-start ml-1">
+                <h6>This my page Home Header I creat It's Deffuclte and harder for no fucking resean Lorem ipsum dolor sit
+                  ametrepudiandae praesentium?</h6>
+              </div>
+              <!----- Periority ----->
+              <div class="mt-[2px] h-7 flex justify-around items-center">
+                <h3
+                  class="bg-green-200 border-2 border-green-700  w-10 h-[23px]  rounded-2xl text-center text-green-700 text-[13px] font-medium">
+                  P2</h3>
+                <h3 class="ml-32"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">28 Oct</span>
+                </h3>
+  
+              </div>
+            </div>
+            <div class="bg-cardsColor w-[95%] h-5/6 mt-3 rounded-xl border-[1px] shadow-xl border-black">
+              <!------- title task ---------->
+              <div class="flex items-center justify-around">
+                <h3 class="mr-3 text-[18px]">Page Home Header</h3>
+                <i
+                  class=" cursor-pointer fa-solid fa-ellipsis  text-indigo-950 ml-28  text-1xl transition-all duration-[500ms] hover:scale-105"></i>
+              </div>
+              <!----Description-->
+              <div class="mt-1 w-full h-[60px] text-[13px] text-descpcolor text-start ml-1">
+                <h6>This my page Home Header I creat It's Deffuclte and harder for no fucking resean Lorem ipsum dolor sit
+                  ametrepudiandae praesentium?</h6>
+              </div>
+              <!----- Periority ----->
+              <div class="mt-[2px] h-7 flex justify-around items-center">
+                <h3
+                  class="bg-green-200 border-2 border-green-700  w-10 h-[23px]  rounded-2xl text-center text-green-700 text-[13px] font-medium">
+                  P2</h3>
+                <h3 class="ml-32"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">28 Oct</span>
+                </h3>
+  
+              </div>
+            </div>
           </div>
-     
-          <!--------Button Ajouter Task Doing------------>
-          <!-- <div class="z-10 sticky bottom-0 bg-Butn  hover:bg-purple-800 cursor-pointer w-full h-[40px] mt-6 flex items-center justify-center text-[18px] font-quicksand rounded-bl-2xl rounded-br-2xl  transition-all duration-[500ms] " onclick="openAjout()">
+
+          <!--------Button Ajouter Task ------------>
+          <div
+            class=" bg-Butn p-2 hover:bg-purple-800 cursor-pointer w-full flex items-center justify-center text-[18px] font-quicksand rounded-bl-2xl rounded-br-2xl  transition-all duration-[500ms]  "
+            onclick="openAjout()">
             <span class="text-3xl mr-4">+</span>
             <h4 class="mr-[200px]">Add item</h4>
-          </div> -->
-       </div>
-         <!---------- creation List Done -------------->
-         <div class=" bg-customPurple overflow-y-auto flex flex-col justify-center items-center   rounded-bl-2xl rounded-br-2xl  ">
-          <!------- Title list --------->
-         
-          <!------------- Card the Task --------->
-          <div class="bg-cardsColor w-[95%]  mt-3 h-[125px] rounded-xl border-[1px] shadow-xl border-black">
-            <!------- title task ---------->
-             <div class="flex items-center justify-around">
-              <h3 class="mr-3 text-[18px]">Page Home Header</h3>
-              <i class=" cursor-pointer fa-solid fa-ellipsis  text-indigo-950 ml-28  text-1xl transition-all duration-[500ms] hover:scale-105"></i>
-             </div>
-             <!----Description-->
-             <div class="mt-1 w-full h-[60px] text-[13px] text-descpcolor text-start ml-1">
-              <h6>This my page Home Header I creat It's Deffuclte and harder for no fucking resean Lorem ipsum dolor sit ametrepudiandae praesentium?</h6>
-             </div>
-             <!----- Periority ----->
-             <div class="mt-[2px] h-7 flex justify-around items-center">
-              <h3 class="bg-green-200 border-2 border-green-700  w-10 h-[23px]  rounded-2xl text-center text-green-700 text-[13px] font-medium">P3</h3>
-              <h3 class="ml-32"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">28 Oct</span></h3>
-
-             </div>
           </div>
-     
-          <!-- ------Button Ajouter Task ----------
-          <div class="z-10 sticky bottom-0 bg-Butn  hover:bg-purple-800 cursor-pointer w-full h-[40px] mt-6 flex items-center justify-center text-[18px] font-quicksand rounded-bl-2xl rounded-br-2xl  transition-all duration-[500ms] " onclick="openAjout()">
-            <span class="text-3xl mr-4">+</span>
-            <h4 class="mr-[200px]">Add item</h4>
-          </div> -->
-    </div>
-   </div>
-         <!------------------ Buttons ----------------->
-         <div class="grid grid-cols-[30%_30%_30%]  justify-around items-start  text-center ">
-
-                <!--------Button Ajouter Task toDo ------------>
-            <div class=" bg-Butn  hover:bg-purple-800 cursor-pointer w-full h-[40px] mt-6 flex items-center justify-center text-[18px] font-quicksand rounded-bl-2xl rounded-br-2xl  transition-all duration-[500ms] " onclick="openAjout()">
-              <span class="text-3xl mr-4">+</span>
-              <h4 class="mr-[200px]">Add item</h4>
-            </div>
-            <!--------Button Ajouter Task Doing ------------>
-            <div class="z-10 sticky bottom-0 bg-Butn  hover:bg-purple-800 cursor-pointer w-full h-[40px] mt-6 flex items-center justify-center text-[18px] font-quicksand rounded-bl-2xl rounded-br-2xl  transition-all duration-[500ms] " onclick="openAjout()">
-              <span class="text-3xl mr-4">+</span>
-              <h4 class="mr-[200px]">Add item</h4>
-            </div>
-              <!--------Button Ajouter Task Done------------>
-          <div class="z-10 sticky bottom-0 bg-Butn  hover:bg-purple-800 cursor-pointer w-full h-[40px] mt-6 flex items-center justify-center text-[18px] font-quicksand rounded-bl-2xl rounded-br-2xl  transition-all duration-[500ms] " onclick="openAjout()">
-            <span class="text-3xl mr-4">+</span>
-            <h4 class="mr-[200px]">Add item</h4>
-          </div>
-
-         </div>
-          
-   </div>
- 
-        
-       
-       <!------------------ Formulaire Ajouuut --------------------->
-       <div class="fixed inset-0 bg-gray-800 bg-opacity-50  items-center justify-center z-50 hidden" id="Ajoute">
-        <!-- Modal Content -->
-        <div class="bg-customPurple rounded-lg shadow-lg w-11/12 md:w-1/3 p-6">
-            <h2 class="text-2xl font-semibold mb-4 text-rose-100">Add New Item</h2>
-            <form>
-                <div class="mb-4">
-                    <label class="block  text-sm font-bold mb-2" for="title">Title</label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title" type="text" placeholder="Task Title" required>
-                </div>
-
-                <div class="mb-4">
-                    <label class="block  text-sm font-bold mb-2" for="description">Description</label>
-                    <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" rows="3" placeholder="Task Description" required></textarea>
-                </div>
-
-                <div class="mb-4">
-                    <label class="block  text-sm font-bold mb-2" for="status">Status</label>
-                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="status" required>
-                        <option value="todo">To do</option>
-                        <option value="doing">Doing</option>
-                        <option value="done">Done</option>
-                    </select>
-                </div>
-
-                <div class="mb-4">
-                    <label class="block  text-sm font-bold mb-2" for="dueDate">Due Date</label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dueDate" type="date" required>
-                </div>
-
-                <div class="mb-4">
-                     <div>
-
-                     </div>
-                    <label class="block  text-sm font-bold mb-2" for="priority">Priority</label>
-                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="priority" required>
-                        <option value="P1">P1</option>
-                        <option value="P2">P2</option>
-                        <option value="P3">P3</option>
-                    </select>
-                </div>
-
-                <div class="flex items-center justify-between">
-                    <button class="bg-Butn hover:bg-purple-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                        Add Task
-                    </button>
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onclick="closeModal()">
-                        Cancel
-                    </button>
-                </div>
-            </form>
         </div>
-    </div>
-   </div>
+      </div>
 
-   <script src="../main.js"></script>
+        <!---------- Creation List Doing ------------->
+        <div
+        class="bg-customPurple rounded-2xl flex flex-col justify-between heightCard">
+        <!------- Title list --------->
+        <div class=" flex  items-center bg-Butn w-[100%] p-3 rounded-tr-xl rounded-tl-xl h-[50px]">
+          <h6 class="bg-blue-300 w-4 rounded-[50%] text-center border-[4px]  h-4  border-blue-900 ml-2"></h6>
+          <h4 class=" ml-5 text-[20px] font-quicksand">Doing</h4>
+        </div>
+        <!------------- Card the Task --------->
+        <div class="spaceClass">
+          <div class="flex flex-col items-center h-full overflow-auto scrollBar mb-[20px]">
+              <!----- cards ------->
+            <div class="bg-cardsColor w-[95%] h-5/6 mt-1 rounded-xl border-[1px] shadow-xl border-black">
+              <!------- title task ---------->
+              <div class="flex items-center justify-around">
+                <h3 class="mr-3 text-[18px]">Page Home Header</h3>
+                <i
+                  class=" cursor-pointer fa-solid fa-ellipsis  text-indigo-950 ml-28  text-1xl transition-all duration-[500ms] hover:scale-105"></i>
+              </div>
+              <!----Description-->
+              <div class="mt-1 w-full h-[60px] text-[13px] text-descpcolor text-start ml-1">
+                <h6>This my page Home Header I creat It's Deffuclte and harder for no fucking resean Lorem ipsum dolor sit
+                  ametrepudiandae praesentium?</h6>
+              </div>
+              <!----- Periority ----->
+              <div class="mt-[2px] h-7 flex justify-around items-center">
+                <h3
+                class="bg-yellow-200 border-2 border-yellow-600   w-10 h-[23px]  rounded-2xl text-center text-orange-700 text-[13px] font-medium">
+                 P2</h3>
+                <h3 class="ml-32"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">28 Oct</span>
+                </h3>
+  
+              </div>
+            </div>
+
+          </div>
+
+          <!--------Button Ajouter Task ------------>
+          <div
+            class=" bg-Butn p-2 hover:bg-purple-800 cursor-pointer w-full flex items-center justify-center text-[18px] font-quicksand rounded-bl-2xl rounded-br-2xl  transition-all duration-[500ms]  "
+            onclick="openAjout()">
+            <span class="text-3xl mr-4">+</span>
+            <h4 class="mr-[200px]">Add item</h4>
+          </div>
+        </div>
+      </div>
+        <!---------- creation List Done -------------->
+        <div
+          class="bg-customPurple rounded-2xl flex flex-col justify-between heightCard">
+          <!------- Title list --------->
+          <div class=" flex  items-center bg-Butn w-[100%] p-3 rounded-tr-xl rounded-tl-xl h-[50px]">
+            <h6 class="bg-green-300 w-4 rounded-[50%] text-center border-[4px]  h-4  border-green-900 ml-2"></h6>
+            <h4 class=" ml-5 text-[20px] font-quicksand">Done</h4>
+          </div>
+          <!------------- Card the Task --------->
+          <div class="spaceClass">
+            <div class="flex flex-col items-center h-full overflow-auto scrollBar mb-[20px]">
+              <div class="bg-cardsColor w-[95%] h-5/6 mt-1 rounded-xl border-[1px] shadow-xl border-black">
+                <!------- title task ---------->
+                <div class="flex items-center justify-around">
+                  <h3 class="mr-3 text-[18px]">Page Home Header</h3>
+                  <i
+                    class=" cursor-pointer fa-solid fa-ellipsis  text-indigo-950 ml-28  text-1xl transition-all duration-[500ms] hover:scale-105"></i>
+                </div>
+                <!----Description-->
+                <div class="mt-1 w-full h-[60px] text-[13px] text-descpcolor text-start ml-1">
+                  <h6>This my page Home Header I creat It's Deffuclte and harder for no fucking resean Lorem ipsum dolor sit
+                    ametrepudiandae praesentium?</h6>
+                </div>
+                <!----- Periority ----->
+                <div class="mt-[2px] h-7 flex justify-around items-center">
+                  <h3
+                    class="bg-green-200 border-2 border-green-700  w-10 h-[23px]  rounded-2xl text-center text-green-700 text-[13px] font-medium">
+                    P3</h3>
+                  <h3 class="ml-32"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">28 Oct</span>
+                  </h3>
+    
+                </div>
+              </div>
+
+            </div>
+  
+            <!--------Button Ajouter Task ------------>
+            <div
+              class=" bg-Butn p-2 hover:bg-purple-800 cursor-pointer w-full flex items-center justify-center text-[18px] font-quicksand rounded-bl-2xl rounded-br-2xl  transition-all duration-[500ms]  "
+              onclick="openAjout()">
+              <span class="text-3xl mr-4">+</span>
+              <h4 class="mr-[200px]">Add item</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!------------------ Formulaire Ajouuut --------------------->
+  <div class="fixed inset-0 bg-gray-800 bg-opacity-50 hidden items-center justify-center z-50 " id="Ajoute">
+    <!-- Modal Content -->
+    <div class="bg-customPurple rounded-lg shadow-lg w-11/12 md:w-1/3 p-6">
+      <div class="flex justify-between items-center">
+        <h2 class="text-2xl font-semibold mb-4 text-rose-100">Add New Item</h2>
+        <i class="fa-solid fa-x text-3xl cursor-pointer" onclick="closeModal()"></i>
+      </div>
+      
+      <form>
+        <div class="mb-4">
+          <label class="block  text-sm font-bold mb-2" for="title">Title</label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="title" type="text" placeholder="Task Title" required>
+        </div>
+
+        <div class="mb-4">
+          <label class="block  text-sm font-bold mb-2" for="description">Description</label>
+          <textarea
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="description" rows="3" placeholder="Task Description" required></textarea>
+        </div>
+
+        <div class="mb-4">
+          <label class="block  text-sm font-bold mb-2" for="status">Status</label>
+          <select
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="status" required>
+            <option value="todo">To do</option>
+            <option value="doing">Doing</option>
+            <option value="done">Done</option>
+          </select>
+        </div>
+
+        <div class="mb-4">
+          <label class="block  text-sm font-bold mb-2" for="dueDate">Due Date</label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="dueDate" type="date" required>
+        </div>
+
+        <div class="mb-4">
+          <div>
+
+          </div>
+          <label class="block  text-sm font-bold mb-2" for="priority">Priority</label>
+          <select
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="priority" required>
+            <option value="P1">P1</option>
+            <option value="P2">P2</option>
+            <option value="P3">P3</option>
+          </select>
+        </div>
+
+        <div class="flex items-center justify-center ">
+          <button
+            class="bg-Butn w-full hover:bg-purple-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit">
+            Add Task
+          </button>
+         
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+  <script src="main.js"></script>
 </body>
+
 </html>
