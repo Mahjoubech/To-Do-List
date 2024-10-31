@@ -187,6 +187,10 @@ body {
 .scrollBar::-webkit-scrollbar {
   display: none;
 }
+.w-j{
+  min-width: 95%;
+  
+}
 
 .spaceClass {
     height: 87%;
