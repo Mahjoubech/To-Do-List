@@ -202,10 +202,10 @@ body {
 .statusup{
   position: absolute;
   z-index: 9999;
-  top: 25%;
-  right: 20%;
-  min-height: 50px;
-  width: 50px;
+  top: 20%;
+  right: 12%;
+  height: 12px;
+  width: 40px;
 }
 .marginTop{
   margin-top: 60px;

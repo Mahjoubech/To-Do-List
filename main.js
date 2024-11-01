@@ -95,19 +95,19 @@ for(let i = 0 ; i < dataTask.length ; i++){
            <h3 class="${ChangeColor} w-10 h-[23px] rounded-2xl text-center border-2 text-[13px] font-medium">
                ${dataTask[i].priority}
            </h3>
-          <h3 class="ml-32"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">${time[2]} ${mounth[time[1] - 1]} </span></h3>
+          <h3 class="ml-32"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">${time[2]} ${mounth[time[1] - 1]}</span></h3>
        </div>
        <button class="bg-white text-customPurple">Update</button>
        <button class="bg-red" onclick="deletdata(${i})">Remove</button>
            <div class="mb-4 z-50 statusup " >
     <label class="block  text-sm font-bold mb-2" for="status">Status</label>
     <select
-      class="shadow appearance-none border rounded w-3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      id="status" onclick="Updatedata(${i})" required>
-      <option value="1" >To do</option>
-      <option value="2" >Doing</option>
-      <option value="3" >Done</option>
-    </select>
+            class="shadow appearance-none border rounded w-3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="status ${i}" onchange="Updatedata(${i})">
+            <option value="1" ${dataTask[i].status === '1' ? 'selected' : ''}>To do</option>
+            <option value="2" ${dataTask[i].status === '2' ? 'selected' : ''}>Doing</option>
+            <option value="3" ${dataTask[i].status === '3' ? 'selected' : ''}>Done</option>
+        </select>
        </div>
    </div>`;
     
@@ -140,18 +140,18 @@ function deletdata(i){
 }
 // delet all
 function DeletAll(){
-  
   localStorage.clear();
   dataTask.splice(0);
   showdata();
 }
 //Update Data
-function Updatedata(i){
-  // Ajoute.style.display = 'flex';
-  status.value = dataTask[i].status;
-
-  console.log(i)
+function Updatedata(i) {
+  let upStatus = document.getElementById(`status ${i}`).value;
+  dataTask[i].status = upStatus;
+  localStorage.setItem('Tasks', JSON.stringify(dataTask));
+  showdata();
 }
+
 showdata();
 
 // //regex for validation data 
