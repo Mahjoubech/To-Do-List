@@ -199,20 +199,28 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-.statusup{
+.selcup{
+  z-index: 9999;
+  height: 8px;
+  width: 50%;
+  margin-top: 20px;
+  border-radius: 50%;
+}
+/* .statusup{
   position: absolute;
   z-index: 9999;
   top: 20%;
   right: 12%;
   height: 12px;
   width: 40px;
-}
+} */
 .marginTop{
   margin-top: 60px;
 }
  .delAll{
    color: tomato;
    background:  #D6B2F3;
+   
 } 
 .delAll:hover{
   color: red;
@@ -221,8 +229,46 @@ body {
 .gridrows{
   grid-template-rows: 500px;
 }
+.delUP{
+  height: 19vh;
+  width: 15%;
+  position: absolute;
+  top: 30vh;
+  z-index: 9999;
+  left: 740px;
+}
+.btnf:hover{
+  background: #792e8e;
+  transform: scale(1.02);
+  border-radius: 2px;
+}
+.btnf{
+ justify-content: space-around;
+ /* background-color: #D6B2F3; */
+ padding: 0 5px 5px;
+ transition: 0.5s;
 
+}
+.btnfup{
+  margin-left: 20px;
+}
+.btnfup1{
+  margin-left: 20px;
+  margin-right: 110px ;
+  color: tomato;
 
+}
+.fa-edit{
+  color: green;
+}
+.fa-trash{
+  color: rgb(195, 6, 6);
+}
+.xmarks{
+  margin-left: 195px ;
+  margin-top: -10px;
+  font-size: 13px;
+}
 hr {
   height: 0;
   /* 1 */
