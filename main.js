@@ -113,7 +113,7 @@ for(let i = 0 ; i < dataTask.length ; i++){
   let today = new Date();
    today.setHours(0, 0, 0, 0);
   let inputDate = new Date(dueDate.value);
-  if (inputDate == today){
+  if (inputDate.getTime() == today.getTime()){
     countToday++;
   }
   // time 
@@ -127,9 +127,9 @@ for(let i = 0 ; i < dataTask.length ; i++){
   'bg-green-200 text-green-700 border-green-700');
 
        // Card template
-       let cards = `<div  class="flex flex-col  bg-cardsColor w-j h-5/6 mt-1 rounded-xl border-[1px] shadow-xl border-black" draggable="true">
+       let cards = `<div  class="flex flex-col  bg-cardsColor w-j  mt-1 rounded-xl border-[1px] shadow-xl border-black" draggable="true">
        <div class="flex items-center justify-around flex-nowrap">
-           <h3 class="mr-3 text-[18px]">${dataTask[i].title}</h3> 
+           <h3 class="mr-20 text-[18px] ">${dataTask[i].title}</h3> 
            
         <select class="shadow selcup  border rounded  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 
@@ -241,48 +241,3 @@ function Updatedata(i) {
 
 showdata();
 
-
-//       //change color priority
-//     let ChangeColor = priority.value == 'P1' ? 'bg-red-300 text-red-700  border-red-700' : (priority.value == 'P2' ? 'bg-yellow-200 text-orange-700  border-yellow-600' :'bg-green-200 text-green-700  border-green-700'); 
-//       // add task and remplacer les taches (todo-doing-done) 
-//     let cards =`
-    
-    
-//     <div class="bg-cardsColor w-j h-5/6 mt-1 rounded-xl border-[1px] shadow-xl border-black" draggable="true" id="mm">
-//               <!------- title task ---------->
-//               <div class="flex items-center justify-around">
-//                 <h3 class="mr-3 text-[18px]">${title.value}</h3>
-//                 <i
-//                   class=" cursor-pointer fa-solid fa-ellipsis  text-indigo-950 ml-28  text-1xl transition-all duration-[500ms] hover:scale-105"></i>
-//               </div>
-//               <!----Description-->
-//               <div class="mt-1 w-full h-[60px] text-[13px] text-descpcolor text-start ml-1">
-//                 <h6>${description.value}</h6>
-//               </div>
-//               <!----- Periority ----->
-//               <div class="mt-[2px] h-7 flex justify-around items-center">
-               
-//                 <h3
-//                 class="${ChangeColor} w-10 h-[23px]  rounded-2xl text-center border-2 text-[13px] font-medium">
-//                 ${priority.value}</h3>
-//                 <h3 class="ml-32"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">${dueDate.value}</span>
-                
-//                 </h3>
-  
-//               </div>
-//               <button class="bg-red" onclick="remove(this)">add</button>
-//             </div>
-    
-    
-//     `
-//  
-
-
-
-
-
-
-// //fonction delet 
-// function remove(e){
-// document.getElementById("mm").style.di
-// }

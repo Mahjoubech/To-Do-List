@@ -35,9 +35,10 @@
       <div class="bg-colorpur w-[70%] h-[90%] flex flex-col justify-start rounded-xl ">
         <!----- Dev Menu -------->
         <div class="  rounded-xl flex justify-between p-2">
-          <h3 class="font-quicksand text-xl">Menu</h3>
+              
+          <h3 class="font-quicksand text-xl flex items-center justify-around">Sorting Menu&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>  </h3>
           <i
-            class=" cursor-pointer fa-solid fa-ellipsis  text-white  text-3xl transition-all duration-[500ms] hover:scale-105"></i>
+            class=" cursor-pointer fa-solid fa-sort mt-3  text-white  text-[18px] transition-all duration-[500ms] hover:scale-105"></i>
 
         </div>
         <!--------- Dev Upcoming today calander -------------->
@@ -133,19 +134,11 @@
         </div>
         <!------------- Card the Task --------->
         <div class="spaceClass">
-          <div class="flex flex-col items-center h-full overflow-auto scrollBar mb-[20px]" id="todo" >
+          <div class="flex w-full flex-col items-center h-full overflow-auto scrollBar mb-[20px]" id="todo" >
             
 
           
           </div>
-
-          <!-- ------Button Ajouter Task ----------
-          <div
-            class=" bg-Butn p-2 hover:bg-purple-800 cursor-pointer w-full flex items-center justify-center text-[18px] font-quicksand rounded-bl-2xl rounded-br-2xl  transition-all duration-[500ms]  "
-            onclick="openAjout()">
-            <span class="text-3xl mr-4">+</span>
-            <h4 class="mr-[200px]">Add item</h4>
-          </div> -->
         </div>
       </div>
 
@@ -166,19 +159,11 @@
         </div>
         <!------------- Card the Task --------->
         <div class="spaceClass">
-          <div class="flex flex-col items-center h-full overflow-auto scrollBar mb-[20px]" id="doing">
+          <div class="flex w-full flex-col items-center h-full overflow-auto scrollBar mb-[20px]" id="doing">
               <!----- cards ------->
             
 
           </div>
-
-          <!-- ------Button Ajouter Task ----------
-          <div
-            class=" bg-Butn p-2 hover:bg-purple-800 cursor-pointer w-full flex items-center justify-center text-[18px] font-quicksand rounded-bl-2xl rounded-br-2xl  transition-all duration-[500ms]  "
-            onclick="openAjout()">
-            <span class="text-3xl mr-4">+</span>
-            <h4 class="mr-[200px]">Add item</h4>
-          </div> -->
         </div>
       </div>
         <!---------- creation List Done -------------->
@@ -197,23 +182,18 @@
           </div>
           <!------------- Card the Task --------->
           <div class="spaceClass">
-            <div class="flex flex-col items-center h-full overflow-auto scrollBar mb-[20px]" id="done">
+            <div class="flex w-full flex-col items-center h-full overflow-auto scrollBar mb-[20px]" id="done">
         
 
             </div>
-  
-            <!-- ------Button Ajouter Task ----------
-            <div
-              class=" bg-Butn p-2 hover:bg-purple-800 cursor-pointer w-full flex items-center justify-center text-[18px] font-quicksand rounded-bl-2xl rounded-br-2xl  transition-all duration-[500ms]  "
-              >
-              <span class="text-3xl mr-4">+</span>
-              <h4 class="mr-[200px]">Add item</h4>
-            </div> -->
           </div>
         </div>
       </div>
     </div>
   </div>
+
+    
+
   <!------------------ Formulaire Ajouuut --------------------->
   <div class="fixed inset-0 bg-gray-800 bg-opacity-50 hidden items-center justify-center z-50 " id="Ajoute">
     <!-- Modal Content -->
@@ -285,8 +265,16 @@
   </div>
   <!-------------- box update and Delet ----------> 
   
-      
-    
+  <div class="bg-slate-500 w-28 h-48 SMen">
+    <select class="shadow selcup2  border rounded  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+
+    id="status ${i}" >
+          <option value="1" >Priority</option>
+          <option value="2" >Date</option>
+          <option value="3" >Date and Priority</option>
+   </option>   
+  </select>
+  </div>
      
     
    
