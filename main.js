@@ -5,19 +5,16 @@ let status = document.getElementById('status');
 let dueDate = document.getElementById('dueDate');
 let priority = document.getElementById('priority');
 
+
 // pop up form 
 
 let Ajout = document.getElementById('Ajoute');
-let AutrCh = document.getElementById('AutrCh')
-
 function closeModal() {
     Ajoute.style.display = 'none';
-    AutrCh.style.display = 'none';
-}
 
+}
 function openAjout() {
-  AutrCh.style.display = 'flex';
-    
+  
     Ajoute.style.display = 'flex';
     title.value = '';
     description.value = '';
@@ -61,7 +58,7 @@ if (!dueDateRegex.test(dueDate.value)) {
 let today = new Date();
 today.setHours(0, 0, 0, 0);
 let inputDate = new Date(dueDate.value);
-
+let countToday = 0
 if (inputDate < today) {
   alert("The due date you entered has passed. Please enter a valid future date. !!!!")
     return; 
@@ -110,7 +107,15 @@ function showdata(){
   let countP1 = 0;
   let countP2 = 0;
   let countP3 = 0;
+  let countToday = 0
 for(let i = 0 ; i < dataTask.length ; i++){
+  // count today
+  let today = new Date();
+   today.setHours(0, 0, 0, 0);
+  let inputDate = new Date(dueDate.value);
+  if (inputDate == today){
+    countToday++;
+  }
   // time 
   let mounth = ["Jan","Fev","Mar","Apr","May","Jun","Aug","Sep","Oct","Nov","Dec"]
   let time = dataTask[i].dueDate.split("-");  
@@ -122,12 +127,22 @@ for(let i = 0 ; i < dataTask.length ; i++){
   'bg-green-200 text-green-700 border-green-700');
 
        // Card template
-       let cards = `<div  class="relative bg-cardsColor w-j h-5/6 mt-1 rounded-xl border-[1px] shadow-xl border-black" draggable="true">
-       <div class="flex items-center justify-around flex-wrap">
-           <h3 class="mr-3 text-[18px]">${dataTask[i].title}</h3>
-           <i class="cursor-pointer fa-solid fa-ellipsis text-indigo-950 ml-28 text-1xl transition-all duration-[500ms] hover:scale-105" onclick="openAjout()"></i>
+       let cards = `<div  class="flex flex-col  bg-cardsColor w-j h-5/6 mt-1 rounded-xl border-[1px] shadow-xl border-black" draggable="true">
+       <div class="flex items-center justify-around flex-nowrap">
+           <h3 class="mr-3 text-[18px]">${dataTask[i].title}</h3> 
+           
+        <select class="shadow selcup  border rounded  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+
+          id="status ${i}" onchange="Updatedata(${i})">
+                <option value="1" ${dataTask[i].status === '1' ? 'selected' : ''}>To do</option>
+                <option value="2" ${dataTask[i].status === '2' ? 'selected' : ''}>Doing</option>
+                <option value="3" ${dataTask[i].status === '3' ? 'selected' : ''}>Done</option>
+            <option value="#"class=" mr-2 text-red "  onclick="deletdata(${i})" > Delet</option></select>
+         </option>   
+        </select>
            
        </div>
+       
        <div class="mt-1 w-full h-[60px] text-[13px] text-descpcolor text-start ml-1">
            <h6>${dataTask[i].description}</h6>
        </div>
@@ -135,34 +150,21 @@ for(let i = 0 ; i < dataTask.length ; i++){
            <h3 class="${ChangeColor} w-10 h-[23px] rounded-2xl text-center border-2 text-[13px] font-medium">
                ${dataTask[i].priority}
            </h3>
-          <h3 class="ml-32"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">${time[2]} ${mounth[time[1] - 1]}</span></h3>
+          <h3 class="ml-32 tmpr"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">${time[2]} ${mounth[time[1] - 1]}</span></h3>
        </div>
-       <div class="delUP  flex flex-col justify-center items-center space-y-2 bg-Butn rounded-xl" id="AutrCh">
-    <i class="fas fa-x xmarks " onclick="closeModal()"></i>
-    <div class="btnf flex items-center justify-around ">
-      <i class="fas fa-edit mr-2 "></i> 
-    <button class="btnfup flex  items-center  text-purple-600  border-purple-600 hover:bg-purple-600 hover:text-white  rounded-md">
-      Update Status
-      <div class=" z-50 statusup " >
-        <select
-                class="shadow selcup  border rounded  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="status ${i}" onchange="Updatedata(${i})">
-                <option value="1" ${dataTask[i].status === '1' ? 'selected' : ''}>To do</option>
-                <option value="2" ${dataTask[i].status === '2' ? 'selected' : ''}>Doing</option>
-                <option value="3" ${dataTask[i].status === '3' ? 'selected' : ''}>Done</option>
-            </select></button>
-    </div>
-    <div>
-              
-    </div>
-    <div class="btnf flex items-center justify-around "> 
-      <i class="fas fa-trash mr-2 "></i> 
-     <button class="btnfup1 flex items-center  text-white    rounded-md" onclick="deletdata(${i})">
-    Remove </button> 
-    </div> 
-  </div>
-    `;
- 
+       
+       </div>
+   </div>
+   
+</div>
+   `;
+
+   // total task for today          
+   todid.innerHTML = `<span class="ml-9 bg-gray-700 text-white rounded-full px-2 py-1 text-xs">${countToday}</span> `
+  // total task 
+  tttsk.innerHTML = `<span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${dataTask.length}</span>`
+  
+
    switch (dataTask[i].priority) {
     case 'P1':
       countP1++;
@@ -240,17 +242,47 @@ function Updatedata(i) {
 showdata();
 
 
+//       //change color priority
+//     let ChangeColor = priority.value == 'P1' ? 'bg-red-300 text-red-700  border-red-700' : (priority.value == 'P2' ? 'bg-yellow-200 text-orange-700  border-yellow-600' :'bg-green-200 text-green-700  border-green-700'); 
+//       // add task and remplacer les taches (todo-doing-done) 
+//     let cards =`
+    
+    
+//     <div class="bg-cardsColor w-j h-5/6 mt-1 rounded-xl border-[1px] shadow-xl border-black" draggable="true" id="mm">
+//               <!------- title task ---------->
+//               <div class="flex items-center justify-around">
+//                 <h3 class="mr-3 text-[18px]">${title.value}</h3>
+//                 <i
+//                   class=" cursor-pointer fa-solid fa-ellipsis  text-indigo-950 ml-28  text-1xl transition-all duration-[500ms] hover:scale-105"></i>
+//               </div>
+//               <!----Description-->
+//               <div class="mt-1 w-full h-[60px] text-[13px] text-descpcolor text-start ml-1">
+//                 <h6>${description.value}</h6>
+//               </div>
+//               <!----- Periority ----->
+//               <div class="mt-[2px] h-7 flex justify-around items-center">
+               
+//                 <h3
+//                 class="${ChangeColor} w-10 h-[23px]  rounded-2xl text-center border-2 text-[13px] font-medium">
+//                 ${priority.value}</h3>
+//                 <h3 class="ml-32"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">${dueDate.value}</span>
+                
+//                 </h3>
+  
+//               </div>
+//               <button class="bg-red" onclick="remove(this)">add</button>
+//             </div>
+    
+    
+//     `
+//  
 
-//    <button class="bg-white text-customPurple">Update</button>
-    //    <button class="bg-red" onclick="deletdata(${i})">Remove</button>
-    //        <div class="mb-4 z-50 statusup " >
-    // <label class="block  text-sm font-bold mb-2" for="status">Status</label>
-    // <select
-    //         class="shadow appearance-none border rounded w-3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-    //         id="status ${i}" onchange="Updatedata(${i})">
-    //         <option value="1" ${dataTask[i].status === '1' ? 'selected' : ''}>To do</option>
-    //         <option value="2" ${dataTask[i].status === '2' ? 'selected' : ''}>Doing</option>
-    //         <option value="3" ${dataTask[i].status === '3' ? 'selected' : ''}>Done</option>
-    //     </select>
-    //    </div>
-  //  </div>
+
+
+
+
+
+// //fonction delet 
+// function remove(e){
+// document.getElementById("mm").style.di
+// }
