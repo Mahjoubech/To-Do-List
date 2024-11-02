@@ -38,8 +38,8 @@
               
           <h3 class="font-quicksand text-xl flex items-center justify-around">Sorting Menu&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>  </h3>
           <i
-            class=" cursor-pointer fa-solid fa-sort mt-3  text-white  text-[18px] transition-all duration-[500ms] hover:scale-105"></i>
-
+            class=" cursor-pointer fa-solid fa-sort mt-3  text-white  text-[18px] transition-all duration-[500ms] hover:scale-105" onclick="opbar()"></i>
+             
         </div>
         <!--------- Dev Upcoming today calander -------------->
         <div class="">
@@ -265,13 +265,11 @@
   </div>
   <!-------------- box update and Delet ----------> 
   
-  <div class="bg-slate-500 w-28 h-48 SMen">
-    <select class="shadow selcup2  border rounded  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-
-    id="status ${i}" >
-          <option value="1" >Priority</option>
-          <option value="2" >Date</option>
-          <option value="3" >Date and Priority</option>
+  <div class="bg-slate-500 w-28 h-48 SMen hidden" id="BarMenu">
+    <select class="shadow selcup2  border rounded cursor-pointer  text-gray-700 leading-tight focus:outline-none focus:shadow-outline" >
+          <option value="p" onclick="sortByPriority()">Priority</option>
+          <option value="d" >Date Limit</option>
+          <option value="dp" >Date Limit and Priority</option>
    </option>   
   </select>
   </div>

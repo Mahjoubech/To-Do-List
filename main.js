@@ -9,6 +9,14 @@ let priority = document.getElementById('priority');
 // pop up form 
 
 let Ajout = document.getElementById('Ajoute');
+let BarMenu = document.getElementById('BarMenu')
+function opbar(){
+  BarMenu.style.display = 'flex'
+  
+}
+// BarMenu.onclick = ()=>{
+//   BarMenu.style.display = 'none'
+// }
 function closeModal() {
     Ajoute.style.display = 'none';
 
@@ -238,6 +246,19 @@ function Updatedata(i) {
   localStorage.setItem('Tasks', JSON.stringify(dataTask));
   showdata();
 }
+//tri par Priority
+
+function sortByPriority() {
+  // Sort the dataTask array based on the priority
+  dataTask.sort((a, b) => {
+      const priorityOrder = { P1: 1, P2: 2, P3: 3 }; // Define the order of priority
+      return priorityOrder[a.priority] - priorityOrder[b.priority];
+  });
+
+  // Show the updated data
+  showdata();
+}
+
 
 showdata();
 
