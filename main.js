@@ -34,6 +34,36 @@ if(localStorage.Tasks != null){
 
 //Ajout Task
 function getData(){
+  //regex for validation data 
+
+let titleRegex = /^[a-zA-Z\s]{1,30}$/; 
+let descriptionRegex = /^[\w\s.,-]{1,50}$/; 
+let dueDateRegex = /^\d{4}-\d{2}-\d{2}$/; 
+
+if (!titleRegex.test(title.value)) {
+    alert("Title can only contain letters and spaces, and must be between 1 and 30 characters long.!!!!!");
+    return;
+}
+
+if (!descriptionRegex.test(description.value)) {
+    alert("Description must be between 1 and 50 characters long and can contain numbers, spaces, and ., - characters.!!!!");
+    return;
+}
+
+if (!dueDateRegex.test(dueDate.value)) {
+    alert("Enter the Due Date !!");
+    return;
+}
+
+let today = new Date();
+today.setHours(0, 0, 0, 0);
+let inputDate = new Date(dueDate.value);
+
+if (inputDate < today) {
+  alert("The due date you entered has passed. Please enter a valid future date. !!!!")
+    return; 
+} 
+
 let newobj = {
   title : title.value,
   description : description.value,
@@ -154,25 +184,7 @@ function Updatedata(i) {
 
 showdata();
 
-// //regex for validation data 
-//   let titleRegex = /^[a-zA-Z\s]{1,30}$/;
-//   let descriptionRegex = /^[\w\s.,-]{1,50}$/; 
-//   let dueDateRegex = /^\d{4}-\d{2}-\d{2}$/;
-     
-//     if (!titleRegex.test(title.value)) {
-//         alert("Title can only contain letters, and spaces.");
-//         return;
-//     }
 
-//     if (!descriptionRegex.test(description.value)) {
-//         alert("Description must be between 1 and 50 characters long.");
-//         return;
-//     }
-
-//     if (!dueDateRegex.test(dueDate.value)) {
-//         alert("Due date must be in YYYY-MM-DD format.");
-//         return;
-//     }
 //       //change color priority
 //     let ChangeColor = priority.value == 'P1' ? 'bg-red-300 text-red-700  border-red-700' : (priority.value == 'P2' ? 'bg-yellow-200 text-orange-700  border-yellow-600' :'bg-green-200 text-green-700  border-green-700'); 
 //       // add task and remplacer les taches (todo-doing-done) 
