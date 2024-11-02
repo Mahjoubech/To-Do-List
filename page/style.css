@@ -216,7 +216,7 @@ body {
 } 
 .delAll:hover{
   color: red;
-  background: rgb(64, 6, 83)
+  background: #4F1B70;
 }
 .gridrows{
   grid-template-rows: 500px;
