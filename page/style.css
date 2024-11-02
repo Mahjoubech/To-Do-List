@@ -210,7 +210,14 @@ body {
 .marginTop{
   margin-top: 60px;
 }
-
+ .delAll{
+   color: tomato;
+   background:  #D6B2F3;
+} 
+.delAll:hover{
+  color: red;
+  background: rgb(64, 6, 83)
+}
 .gridrows{
   grid-template-rows: 500px;
 }

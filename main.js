@@ -88,7 +88,7 @@ function cleardata(){
  priority.value = '';
 
 }
-
+  
 // show data
 function showdata(){
   let todo = document.getElementById('todo');
@@ -99,7 +99,14 @@ function showdata(){
   todo.innerHTML = '';
   doing.innerHTML = '';
   done.innerHTML = '';
-   
+  // creat compteur tasks
+  let CountstoDo = 0;
+  let Countsdoing = 0;
+  let Countsdone = 0;
+  // creat compteur priority
+  let countP1 = 0;
+  let countP2 = 0;
+  let countP3 = 0;
 for(let i = 0 ; i < dataTask.length ; i++){
   // time 
   let mounth = ["Jan","Fev","Mar","Apr","May","Jun","Aug","Sep","Oct","Nov","Dec"]
@@ -140,27 +147,60 @@ for(let i = 0 ; i < dataTask.length ; i++){
         </select>
        </div>
    </div>`;
-    
-    switch (dataTask[i].status) {
+ 
+   switch (dataTask[i].priority) {
+    case 'P1':
+      countP1++;
+      break;
+    case 'P2':
+      countP2++;
+      break;
+    case 'P3':
+      countP3++;
+      break;
+  }
+
+  // compteur for task list (todo - doing -done)
+   switch (dataTask[i].status) {
       case '1':
+          CountstoDo++;
           todo.innerHTML += cards;
           break;
       case '2':
+          Countsdoing++;
           doing.innerHTML += cards;
           break;
       case '3':
+          Countsdone++;
           done.innerHTML += cards;
           break;
-  }
-}  
-  //show button delet all if local have a data
-  let btndel= document.getElementById('btndel')
-    if(dataTask.length > 0){
-      btndel.innerHTML = ` <h6> ${dataTask.length}</h6><i class="fa-solid fa-trash text-rose-500 cursor-pointer" onclick="DeletAll()"></i> `
-    }else{
-      btndel.innerHTML = '';
     }
-}
+  }
+  // show statistic tasks in todo ,dooing and done 
+    if(dataTask.length > 0){
+      btntodo.innerHTML = ` <h6> ${CountstoDo}</h6>  `
+      btndoing.innerHTML = ` <h6> ${Countsdoing}</h6>  `  
+      btndone.innerHTML = ` <h6> ${Countsdone}</h6>  `
+      // <i class="fa-solid fa-trash text-rose-500 cursor-pointer" onclick="DeletAll()"></i>   
+    }else{
+      btntodo.innerHTML = '';
+      btndoing.innerHTML = '';
+      btndone.innerHTML = '';
+
+    }
+    // show statistic P1 P2 P3 
+    if(dataTask.length > 0){
+      stP1.innerHTML = ` <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${countP1}</span>`
+      stP2.innerHTML = ` <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${countP2}</span>`
+      stP3.innerHTML = ` <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${countP3}</span>`
+    }else{
+      stP1.innerHTML =``;
+      stP2.innerHTML =``;
+      stP3.innerHTML =``;
+    }
+}  
+  
+
 
 // delet tasks
 function deletdata(i){
