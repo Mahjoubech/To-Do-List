@@ -128,7 +128,7 @@ for(let i = 0 ; i < dataTask.length ; i++){
   'bg-green-200 text-green-700 border-green-700');
 
        // Card template
-       let cards = `<div  class="flex flex-col  bg-cardsColor w-j  mt-1 rounded-xl border-[1px] shadow-xl border-black" id="dragdr" draggable="true">
+       let cards = `<div  class="flex flex-col  bg-cardsColor w-j  mt-1 rounded-xl border-[1px] shadow-xl border-black" id="dragdr" draggable="true" ondragstart="drag(event)">
        <div class="flex items-center justify-around flex-nowrap">
            <h3 class="mr-20 text-[18px] ">${dataTask[i].title}</h3> 
            
@@ -286,7 +286,14 @@ showdata();
 let Menmedia = document.getElementById('Menmedia')
 function openSortMenu(){
   Menmedia.style.display = 'flex'
+  Menmedia.classList.toggle('active');
 }
 function closebars(){
   Menmedia.style.display = 'none'
 }
+
+function toggleMenu() {
+  const SaMenu = document.querySelector('.SaMenu');
+  SaMenu.classList.toggle('active');
+}
+

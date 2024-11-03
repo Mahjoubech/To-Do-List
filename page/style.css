@@ -130,7 +130,11 @@
     position: fixed;
     right: -60px;
     top: 55px;
+    transition: 0.5s;
   }
+  
+  
+
   .imgbar{
     display: flex;
     flex-direction: row-reverse;
