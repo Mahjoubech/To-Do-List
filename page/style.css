@@ -106,14 +106,15 @@
   #barss:hover{
      transform: scale(1.05);
   }
-  .xmrk{
+  #xmrk{
+  display: flex;
     position: fixed ;
     right: 8px;
     font-size: 25px;
     cursor: pointer;
     
   }
-  .xmrk:hover{
+  #xmrk:hover{
     transform: scale(1.05);
   }
   #Ajoute{
