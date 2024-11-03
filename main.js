@@ -96,12 +96,12 @@ function cleardata(){
  priority.value = '';
 
 }
-  
+   let todo = document.getElementById('todo');
+  let doing = document.getElementById('doing');
+  let done = document.getElementById('done'); 
 // show data
 function showdata(){
-  let todo = document.getElementById('todo');
-  let doing = document.getElementById('doing');
-  let done = document.getElementById('done');
+
 
   // Clear existing content
   todo.innerHTML = '';
@@ -115,15 +115,9 @@ function showdata(){
   let countP1 = 0;
   let countP2 = 0;
   let countP3 = 0;
-  let countToday = 0
+ 
 for(let i = 0 ; i < dataTask.length ; i++){
-  // count today
-  let today = new Date();
-   today.setHours(0, 0, 0, 0);
-  let inputDate = new Date(dueDate.value);
-  if (inputDate.getTime() == today.getTime()){
-    countToday++;
-  }
+  
   // time 
   let mounth = ["Jan","Fev","Mar","Apr","May","Jun","Aug","Sep","Oct","Nov","Dec"]
   let time = dataTask[i].dueDate.split("-");  
@@ -135,7 +129,7 @@ for(let i = 0 ; i < dataTask.length ; i++){
   'bg-green-200 text-green-700 border-green-700');
 
        // Card template
-       let cards = `<div  class="flex flex-col  bg-cardsColor w-j  mt-1 rounded-xl border-[1px] shadow-xl border-black" draggable="true">
+       let cards = `<div  class="flex flex-col  bg-cardsColor w-j  mt-1 rounded-xl border-[1px] shadow-xl border-black" id="dragdr" draggable="true">
        <div class="flex items-center justify-around flex-nowrap">
            <h3 class="mr-20 text-[18px] ">${dataTask[i].title}</h3> 
            
@@ -166,11 +160,17 @@ for(let i = 0 ; i < dataTask.length ; i++){
    
 </div>
    `;
+   //coumpteur date 
 
-   // total task for today          
-   todid.innerHTML = `<span class="ml-9 bg-gray-700 text-white rounded-full px-2 py-1 text-xs">${countToday}</span> `
+
   // total task 
-  tttsk.innerHTML = `<span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${dataTask.length}</span>`
+  if(dataTask.length > 0){
+    tttsk.innerHTML = `<span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${dataTask.length}</span>`
+  }else{
+   tttsk.innerHTML =``;
+   
+  }
+  
   
 
    switch (dataTask[i].priority) {
@@ -184,6 +184,7 @@ for(let i = 0 ; i < dataTask.length ; i++){
       countP3++;
       break;
   }
+ 
 
   // compteur for task list (todo - doing -done)
    switch (dataTask[i].status) {
@@ -201,6 +202,16 @@ for(let i = 0 ; i < dataTask.length ; i++){
           break;
     }
   }
+
+  //count priority
+  let cntpr = countP1 + countP2 + countP3
+  if(dataTask.length > 0){
+    countpririoty.innerHTML = ` <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${cntpr}</span>`
+  }else{
+    countpririoty ='';
+   
+  }
+  
   // show statistic tasks in todo ,dooing and done 
     if(dataTask.length > 0){
       btntodo.innerHTML = ` <h6> ${CountstoDo}</h6>  `
@@ -213,6 +224,14 @@ for(let i = 0 ; i < dataTask.length ; i++){
       btndone.innerHTML = '';
 
     }
+    // statistic date 
+    if(dataTask.length > 0){
+      stdate.innerHTML = ` <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${dataTask.length}</span>`
+      
+    }else{
+      stdate.innerHTML =``;
+     
+    }
     // show statistic P1 P2 P3 
     if(dataTask.length > 0){
       stP1.innerHTML = ` <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${countP1}</span>`
@@ -224,8 +243,8 @@ for(let i = 0 ; i < dataTask.length ; i++){
       stP3.innerHTML =``;
     }
 }  
-  
 
+// drag and drop 
 
 // delet tasks
 function deletdata(i){
@@ -248,14 +267,16 @@ function Updatedata(i) {
 }
 //tri par Priority
 
-function sortByPriority() {
-  // Sort the dataTask array based on the priority
+function tribypr() {
   dataTask.sort((a, b) => {
-      const priorityOrder = { P1: 1, P2: 2, P3: 3 }; // Define the order of priority
-      return priorityOrder[a.priority] - priorityOrder[b.priority];
+      let priort = { P1: 1, P2: 2, P3: 3 };
+      return priort[a.priority] - priort[b.priority];
   });
-
-  // Show the updated data
+  showdata();
+}
+//tri par date 
+function tribydate() {
+  dataTask.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
   showdata();
 }
 

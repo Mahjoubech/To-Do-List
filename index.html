@@ -36,9 +36,8 @@
         <!----- Dev Menu -------->
         <div class="  rounded-xl flex justify-between p-2">
               
-          <h3 class="font-quicksand text-xl flex items-center justify-around">Sorting Menu&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>  </h3>
-          <i
-            class=" cursor-pointer fa-solid fa-sort mt-3  text-white  text-[18px] transition-all duration-[500ms] hover:scale-105" onclick="opbar()"></i>
+          <h3 class="font-quicksand text-xl flex items-center justify-around">Sorting Menu  </h3>
+         
              
         </div>
         <!--------- Dev Upcoming today calander -------------->
@@ -53,18 +52,21 @@
 
               </div>
             </li>
-            <li
+            <li onclick="tribypr()"
               class="cursor-pointer flex items-center justify-around rounded-xl py-4 w-[90%] bg-customPurple  hover:bg-purple-800 transition-all duration-[500ms] hover:scale-105">
-              <i class="fa-solid fa-calendar-week"></i>
-              <h5>Today </h5>
-              <div id="todid" class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">
+              <i class="fa-solid fa-circle-exclamation"></i>
+              <h5>Sort By Priority</h5>
+              <div id="countpririoty" class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">
 
               </div>
             </li>
-            <li
+            <li onclick="tribydate()"
               class="cursor-pointer flex items-center justify-around rounded-xl py-4 w-[90%] bg-customPurple  hover:bg-purple-800 transition-all duration-[500ms] hover:scale-105">
               <i class="fa-solid fa-calendar-days "></i>
-              <h5 class="mr-20">Calander </h5>
+              <h5 class="">Sort By Date </h5>
+              <div class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs" id="stdate">
+
+              </div>
             </li>
           </ul>
         </div>
@@ -265,14 +267,16 @@
   </div>
   <!-------------- box update and Delet ----------> 
   
-  <div class="bg-slate-500 w-28 h-48 SMen hidden" id="BarMenu">
-    <select class="shadow selcup2  border rounded cursor-pointer  text-gray-700 leading-tight focus:outline-none focus:shadow-outline" >
-          <option value="p" onclick="sortByPriority()">Priority</option>
-          <option value="d" >Date Limit</option>
+
+  
+  <!-- <div class="bg-slate-500 w-28 h-48 SMen hidden" id="BarMenu">
+    <ul class="shadow selcup2  border rounded cursor-pointer  text-gray-700 leading-tight focus:outline-none focus:shadow-outline" >
+          <option value="" onclick="sortByPriority()">Priority</option>
+          <option value="" >Date Limit</option>
           <option value="dp" >Date Limit and Priority</option>
    </option>   
-  </select>
-  </div>
+  </ul>
+  </div> -->
      
     
    

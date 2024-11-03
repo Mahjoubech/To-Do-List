@@ -191,6 +191,7 @@ body {
   min-width: 90%;
   height: 150px;
   margin-bottom: 8px;
+  cursor: grab;
   
 }
 .SMen{
