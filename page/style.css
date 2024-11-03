@@ -51,7 +51,113 @@
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
 }
+@media (max-width: 640px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    height: auto;
+    margin: 0;
+    z-index: 70;
+  }
 
+  header img {
+    width: 60px;
+    height: 100px;
+    margin-top: -20px;
+  }
+
+  header h1 {
+    font-size: 1.75rem;
+    text-align: center;
+    display: none;
+  }
+
+  #search {
+   
+    width: 40%;
+    height: 4vh;
+    margin-top: 10px;
+    position: absolute;
+    top: 6px;
+    right: 90px;
+  }
+
+  #search input {
+    width: 80%;
+    padding: 5px;
+  }
+  #Container{
+    grid-template-columns: 1fr;
+    margin-top: 100px;
+   
+  }
+  #barss{
+    display: block;
+    font-size: 30px;
+    margin-top: -12px;
+    margin-right: 20px;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  #barss:hover{
+     transform: scale(1.05);
+  }
+  #Menmedia{
+    display: none;
+    background: transparent;
+    height: 100vh;
+    z-index: 88;
+    width: 70%;
+    position: fixed;
+    right: -60px;
+    top: 55px;
+  }
+  .imgbar{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: -12px;
+    
+  }
+  
+ #gridstr{
+    grid-template-columns: 80%;
+    grid-template-rows: 100% 100% 100%;
+ 
+  }
+  
+  .heightCard {
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .text {
+    font-size: 18px;
+  }
+
+  .w {
+    width: 100%;
+  }
+
+  .w-4 {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .h {
+    height: 40px;
+  }
+
+  .marginTop {
+    margin-top: 10px;
+  }
+
+}
 ::backdrop {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;

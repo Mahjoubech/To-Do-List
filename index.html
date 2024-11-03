@@ -10,10 +10,14 @@
   <link rel="stylesheet" href="./page/style.css">
 </head>
 
-<body class="bg-lightPurple  text-white font-sans">
+<body class="bg-lightPurple  text-white font-sans" >
   <!-------HEADER----------------->
   <header class=" bg-customPurple flex justify-around items-center w-full h-20">
-    <img class="bg-slate w-40 h-45 ml-8" src="../img/logo.png" alt="">
+  <div class="imgbar">
+    <i class="fa-solid fa-bars hidden" id="barss" onclick="openSortMenu()"></i> <img class="bg-slate w-40 h-45 ml-8" src="../img/logo.png" alt="">
+      
+  </div>
+    
     <h1 class="font-semibold  text-6xl font-quicksand ">To Do List</h1>
     <div id="search"
       class="group cursor-pointer flex justify-center items-center rounded-lg shadow-lg h-10 w-2/5 bg-white rounded-">
@@ -26,9 +30,9 @@
     </div>
   </header>
   <!--Hover kamlo-->
-  <div class=" w-full h-screen grid grid-cols-[400px_1fr]" id="Container">
+  <div class=" w-full h-screen grid grid-cols-[400px_1fr]" id="Container" onclick="closebars()">
     <!------ Menu ------------->
-    <div class="bg-customPurple flex justify-center">
+    <div class="bg-customPurple flex justify-center " id="Menmedia">
       <!------- card Menu ------------->
       <div class="bg-colorpur w-[70%] h-[90%] flex flex-col justify-start rounded-xl ">
         <!----- Dev Menu -------->
@@ -114,7 +118,7 @@
 
     <!----------------pareeent mkhalwd  ---------------------->
     <div class="marginTop">
-      <div class="grid grid-cols-[30%_30%_30%] gridrows justify-around text-center ">
+      <div class="grid grid-cols-[30%_30%_30%] gridrows justify-around text-center " id="gridstr">
         <!----Creation List toDo ----------->
         <div 
         class="bg-customPurple rounded-2xl flex flex-col justify-between heightCard">

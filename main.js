@@ -42,8 +42,8 @@ if(localStorage.Tasks != null){
 
 //Ajout Task
 function getData(){
-  //regex for validation data 
 
+//regex for validation data 
 let titleRegex = /^[a-zA-Z\s]{1,30}$/; 
 let descriptionRegex = /^[\w\s.,-]{1,50}$/; 
 let dueDateRegex = /^\d{4}-\d{2}-\d{2}$/; 
@@ -54,7 +54,7 @@ if (!titleRegex.test(title.value)) {
 }
 
 if (!descriptionRegex.test(description.value)) {
-    alert("Description must be between 1 and 50 characters long and can contain numbers, spaces, and ., - characters.!!!!");
+    alert("Description must be between 1 and 50 characters long and can contain numbers, spaces.");
     return;
 }
 
@@ -283,3 +283,10 @@ function tribydate() {
 
 showdata();
 
+let Menmedia = document.getElementById('Menmedia')
+function openSortMenu(){
+  Menmedia.style.display = 'flex'
+}
+function closebars(){
+  Menmedia.style.display = 'none'
+}
