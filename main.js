@@ -140,7 +140,7 @@ function showdata() {
         : "bg-green-200 text-green-700 border-green-700";
 
     // Card template
-    let cards = `<div  class="flex flex-col  bg-cardsColor w-j  mt-1 rounded-xl border-[1px] shadow-xl border-black" id="dragdr" draggable="true" ondragstart="drag(event)">
+    let cards = `<div  class="flex flex-col  bg-cardsColor w-j  mt-1 rounded-xl border-[1px] shadow-xl border-black animdl" id="dragdr" draggable="true" ondragstart="drag(event)">
        <div class="flex items-center justify-around flex-nowrap">
            <h3 class="mr-20 text-[18px] ">${dataTask[i].title}</h3> 
            
@@ -259,17 +259,17 @@ function showdata() {
 
 // delet tasks
 function deletdata(i) {
-  const taskElement = document.querySelector(`.task[data-index='${i}']`); // Sélectionne l'élément à supprimer
-
-  if (taskElement) {
-    taskElement.classList.add('fade-out'); // Ajoute la classe d'animation
+   
+  document.querySelector(".animdl")[i].style.transition = "opacity 0.5s ease, transform 0.5s ease";
+  document.querySelector(".animdl")[i].style.opacity = "0";
+  document.querySelector(".animdl")[i].style.transform = "scale(0.9)"
 
     setTimeout(() => {
-      dataTask.splice(i, 1); // Supprime la tâche du tableau
-      localStorage.Tasks = JSON.stringify(dataTask); // Met à jour le localStorage
-      showdata(); // Affiche à nouveau les données
-    }, 500); // Temps d'attente pour que l'animation se termine avant de supprimer l'élément
-  }
+      dataTask.splice(i, 1); 
+      localStorage.Tasks = JSON.stringify(dataTask);
+      showdata(); 
+    }, 500); 
+
 }
 
 // delet all
@@ -311,7 +311,4 @@ function closebars() {
   Menmedia.style.display = "none";
 }
 
-function toggleMenu() {
-  const SaMenu = document.querySelector(".SaMenu");
-  SaMenu.classList.toggle("active");
-}
+
