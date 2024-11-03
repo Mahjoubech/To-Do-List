@@ -92,6 +92,7 @@
   #Container{
     grid-template-columns: 1fr;
     margin-top: 100px;
+    height: 900px;
    
   }
   #barss{
@@ -128,9 +129,9 @@
  #gridstr{
     grid-template-columns: 80%;
     grid-template-rows: 100% 100% 100%;
- 
+    margin-top: -60px;
   }
-  
+ 
   .heightCard {
     height: auto;
     margin-bottom: 20px;
