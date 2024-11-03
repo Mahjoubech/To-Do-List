@@ -138,9 +138,16 @@ function showdata() {
         : dataTask[i].priority == "P2"
         ? "bg-yellow-200 text-orange-700 border-yellow-600"
         : "bg-green-200 text-green-700 border-green-700";
+    // border color
+    let borclr = 
+    dataTask[i].status == "1" ? 
+    "border-red-900" : 
+    dataTask[i].status == "2" ?
+    "border-blue-900":
+    "border-green-900"  
 
     // Card template
-    let cards = `<div  class="flex flex-col  bg-cardsColor w-j  mt-1 rounded-xl border-[1px] shadow-xl border-black animdl" id="dragdr" draggable="true" ondragstart="drag(event)">
+    let cards = `<div  class="flex flex-col  bg-cardsColor w-j  mt-1 rounded-xl border-[3px] shadow-xl ${borclr} animdl" id="dragdr" draggable="true" ondragstart="drag(event)">
        <div class="flex items-center justify-around flex-nowrap">
            <h3 class="mr-20 text-[18px] ">${dataTask[i].title}</h3> 
            

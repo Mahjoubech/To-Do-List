@@ -318,6 +318,7 @@ body {
   height: 150px;
   margin-bottom: 8px;
   cursor: grab;
+  border: 3px solid;
   
 }
 .SMen{
