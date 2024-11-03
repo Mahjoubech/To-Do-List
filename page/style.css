@@ -148,7 +148,7 @@
   
  #gridstr{
     grid-template-columns: 80%;
-    grid-template-rows: 100% 100% 100%;
+    grid-template-rows: 30% 30% 30%;
     margin-top: -60px;
   }
  
@@ -178,6 +178,13 @@
     margin-top: 10px;
   }
 
+}
+@media (min-width: 650px){
+  #xmrk{
+    display: flex;
+      
+      
+    }
 }
 ::backdrop {
   --tw-border-spacing-x: 0;
