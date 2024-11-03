@@ -1,111 +1,111 @@
+let title = document.getElementById("title");
+let description = document.getElementById("description");
+let status = document.getElementById("status");
+let dueDate = document.getElementById("dueDate");
+let priority = document.getElementById("priority");
 
-let title = document.getElementById('title');
-let description = document.getElementById('description');
-let status = document.getElementById('status');
-let dueDate = document.getElementById('dueDate');
-let priority = document.getElementById('priority');
+document.addEventListener("DOMContentLoaded", function (event) {
+  showdata();
+});
 
+// pop up form
 
-// pop up form 
-
-let Ajout = document.getElementById('Ajoute');
-let BarMenu = document.getElementById('BarMenu')
-function opbar(){
-  BarMenu.style.display = 'flex'
-  
+let Ajout = document.getElementById("Ajoute");
+let BarMenu = document.getElementById("BarMenu");
+function opbar() {
+  BarMenu.style.display = "flex";
 }
 // BarMenu.onclick = ()=>{
 //   BarMenu.style.display = 'none'
 // }
 function closeModal() {
-    Ajoute.style.display = 'none';
-
+  Ajoute.style.display = "none";
 }
 function openAjout() {
-  
-    Ajoute.style.display = 'flex';
-    title.value = '';
-    description.value = '';
-    status.value = '';
-    dueDate.value = '';
-    priority.value = '';
-    
+  Ajoute.style.display = "flex";
+  title.value = "";
+  description.value = "";
+  status.value = "";
+  dueDate.value = "";
+  priority.value = "";
 }
 
 // array
-let dataTask 
-if(localStorage.Tasks != null){
-   dataTask = JSON.parse(localStorage.Tasks); 
-}else{
+let dataTask;
+if (localStorage.Tasks != null) {
+  dataTask = JSON.parse(localStorage.Tasks);
+} else {
   dataTask = [];
 }
 
 //Ajout Task
-function getData(){
+function getData() {
+  //regex for validation data
+  let titleRegex = /^[a-zA-Z\s]{1,30}$/;
+  let descriptionRegex = /^[\w\s.,-]{1,50}$/;
+  let dueDateRegex = /^\d{4}-\d{2}-\d{2}$/;
 
-//regex for validation data 
-let titleRegex = /^[a-zA-Z\s]{1,30}$/; 
-let descriptionRegex = /^[\w\s.,-]{1,50}$/; 
-let dueDateRegex = /^\d{4}-\d{2}-\d{2}$/; 
-
-if (!titleRegex.test(title.value)) {
-    alert("Title can only contain letters and spaces, and must be between 1 and 30 characters long.!!!!!");
+  if (!titleRegex.test(title.value)) {
+    alert(
+      "Title can only contain letters and spaces, and must be between 1 and 30 characters long.!!!!!"
+    );
     return;
-}
+  }
 
-if (!descriptionRegex.test(description.value)) {
-    alert("Description must be between 1 and 50 characters long and can contain numbers, spaces.");
+  if (!descriptionRegex.test(description.value)) {
+    alert(
+      "Description must be between 1 and 50 characters long and can contain numbers, spaces."
+    );
     return;
-}
+  }
 
-if (!dueDateRegex.test(dueDate.value)) {
+  if (!dueDateRegex.test(dueDate.value)) {
     alert("Enter the Due Date !!");
     return;
-}
+  }
 
-let today = new Date();
-today.setHours(0, 0, 0, 0);
-let inputDate = new Date(dueDate.value);
-if (inputDate < today) {
-  alert("The due date you entered has passed. Please enter a valid future date. !!!!")
-    return; 
-} 
+  let today = new Date();
+  today.setHours(0, 0, 0, 0);
+  let inputDate = new Date(dueDate.value);
+  if (inputDate < today) {
+    alert(
+      "The due date you entered has passed. Please enter a valid future date. !!!!"
+    );
+    return;
+  }
 
-let newobj = {
-  title : title.value,
-  description : description.value,
-  status : status.value,
-  dueDate : dueDate.value,
-  priority : priority.value
-}
- dataTask.push(newobj);
- localStorage.setItem('Tasks',JSON.stringify(dataTask));
- closeModal()
- cleardata();
- showdata();
+  let newobj = {
+    title: title.value,
+    description: description.value,
+    status: status.value,
+    dueDate: dueDate.value,
+    priority: priority.value,
+  };
+  dataTask.push(newobj);
+  localStorage.setItem("Tasks", JSON.stringify(dataTask));
+  closeModal();
+  cleardata();
+  showdata();
 }
 
 // Clear Data
 
-function cleardata(){
- title.value = '';
- description.value = '';
- status.value = '';
- dueDate.value = '';
- priority.value = '';
-
+function cleardata() {
+  title.value = "";
+  description.value = "";
+  status.value = "";
+  dueDate.value = "";
+  priority.value = "";
 }
-   let todo = document.getElementById('todo');
-  let doing = document.getElementById('doing');
-  let done = document.getElementById('done'); 
+let todo = document.getElementById("todo");
+let doing = document.getElementById("doing");
+let done = document.getElementById("done");
 // show data
-function showdata(){
-
-
+function showdata() {
   // Clear existing content
-  todo.innerHTML = '';
-  doing.innerHTML = '';
-  done.innerHTML = '';
+  todo.innerHTML = "";
+  doing.innerHTML = "";
+  done.innerHTML = "";
   // creat compteur tasks
   let CountstoDo = 0;
   let Countsdoing = 0;
@@ -114,21 +114,33 @@ function showdata(){
   let countP1 = 0;
   let countP2 = 0;
   let countP3 = 0;
- 
-for(let i = 0 ; i < dataTask.length ; i++){
-  
-  // time 
-  let mounth = ["Jan","Fev","Mar","Apr","May","Jun","Aug","Sep","Oct","Nov","Dec"]
-  let time = dataTask[i].dueDate.split("-");  
-    //change color priority
-  let ChangeColor = dataTask[i].priority == 'P1' ? 
-  'bg-red-300 text-red-700 border-red-700' : 
-  (dataTask[i].priority == 'P2' ? 
-  'bg-yellow-200 text-orange-700 border-yellow-600' : 
-  'bg-green-200 text-green-700 border-green-700');
 
-       // Card template
-       let cards = `<div  class="flex flex-col  bg-cardsColor w-j  mt-1 rounded-xl border-[1px] shadow-xl border-black" id="dragdr" draggable="true" ondragstart="drag(event)">
+  for (let i = 0; i < dataTask.length; i++) {
+    // time
+    let mounth = [
+      "Jan",
+      "Fev",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    let time = dataTask[i].dueDate.split("-");
+    //change color priority
+    let ChangeColor =
+      dataTask[i].priority == "P1"
+        ? "bg-red-300 text-red-700 border-red-700"
+        : dataTask[i].priority == "P2"
+        ? "bg-yellow-200 text-orange-700 border-yellow-600"
+        : "bg-green-200 text-green-700 border-green-700";
+
+    // Card template
+    let cards = `<div  class="flex flex-col  bg-cardsColor w-j  mt-1 rounded-xl border-[1px] shadow-xl border-black" id="dragdr" draggable="true" ondragstart="drag(event)">
        <div class="flex items-center justify-around flex-nowrap">
            <h3 class="mr-20 text-[18px] ">${dataTask[i].title}</h3> 
            
@@ -136,9 +148,15 @@ for(let i = 0 ; i < dataTask.length ; i++){
 
           id="status ${i}" onchange="Updatedata(${i})">
                 <option value="#" selected disabled> edit </option>
-                <option value="1" ${dataTask[i].status === '1' ? 'selected' : ''}>To do</option>
-                <option value="2" ${dataTask[i].status === '2' ? 'selected' : ''}>Doing</option>
-                <option value="3" ${dataTask[i].status === '3' ? 'selected' : ''}>Done</option>
+                <option value="1" ${
+                  dataTask[i].status === "1" ? "selected" : ""
+                }>To do</option>
+                <option value="2" ${
+                  dataTask[i].status === "2" ? "selected" : ""
+                }>Doing</option>
+                <option value="3" ${
+                  dataTask[i].status === "3" ? "selected" : ""
+                }>Done</option>
             <option value="#"class=" mr-2 text-red "  onclick="deletdata(${i})" > Delet</option></select>
          </option>   
         </select>
@@ -152,7 +170,9 @@ for(let i = 0 ; i < dataTask.length ; i++){
            <h3 class="${ChangeColor} w-10 h-[23px] rounded-2xl text-center border-2 text-[13px] font-medium">
                ${dataTask[i].priority}
            </h3>
-          <h3 class="ml-32 tmpr"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">${time[2]} ${mounth[time[1] - 1]}</span></h3>
+          <h3 class="ml-32 tmpr"><i class="fas fa-clock text-[12px]"></i><span class="ml-2 text-[12px]">${
+            time[2]
+          } ${mounth[time[1] - 1]}</span></h3>
        </div>
        
        </div>
@@ -160,100 +180,100 @@ for(let i = 0 ; i < dataTask.length ; i++){
    
 </div>
    `;
-   //coumpteur date 
+    //coumpteur date
 
+    // total task
+    if (dataTask.length > 0) {
+      tttsk.innerHTML = `<span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${dataTask.length}</span>`;
+    } else {
+      tttsk.innerHTML = ``;
+    }
 
-  // total task 
-  if(dataTask.length > 0){
-    tttsk.innerHTML = `<span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${dataTask.length}</span>`
-  }else{
-   tttsk.innerHTML =``;
-   
-  }
-  
-  
+    switch (dataTask[i].priority) {
+      case "P1":
+        countP1++;
+        break;
+      case "P2":
+        countP2++;
+        break;
+      case "P3":
+        countP3++;
+        break;
+    }
 
-   switch (dataTask[i].priority) {
-    case 'P1':
-      countP1++;
-      break;
-    case 'P2':
-      countP2++;
-      break;
-    case 'P3':
-      countP3++;
-      break;
-  }
- 
-
-  // compteur for task list (todo - doing -done)
-   switch (dataTask[i].status) {
-      case '1':
-          CountstoDo++;
-          todo.innerHTML += cards;
-          break;
-      case '2':
-          Countsdoing++;
-          doing.innerHTML += cards;
-          break;
-      case '3':
-          Countsdone++;
-          done.innerHTML += cards;
-          break;
+    // compteur for task list (todo - doing -done)
+    switch (dataTask[i].status) {
+      case "1":
+        CountstoDo++;
+        todo.innerHTML += cards;
+        break;
+      case "2":
+        Countsdoing++;
+        doing.innerHTML += cards;
+        break;
+      case "3":
+        Countsdone++;
+        done.innerHTML += cards;
+        break;
     }
   }
 
   //count priority
-  let cntpr = countP1 + countP2 + countP3
-  if(dataTask.length > 0){
-    countpririoty.innerHTML = ` <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${cntpr}</span>`
-  }else{
-    countpririoty ='';
-   
+  let cntpr = countP1 + countP2 + countP3;
+  if (dataTask.length > 0) {
+    countpririoty.innerHTML = ` <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${cntpr}</span>`;
+  } else {
+    countpririoty = "";
   }
-  
-  // show statistic tasks in todo ,dooing and done 
-    if(dataTask.length > 0){
-      btntodo.innerHTML = ` <h6> ${CountstoDo}</h6>  `
-      btndoing.innerHTML = ` <h6> ${Countsdoing}</h6>  `  
-      btndone.innerHTML = ` <h6> ${Countsdone}</h6>  `
-      // <i class="fa-solid fa-trash text-rose-500 cursor-pointer" onclick="DeletAll()"></i>   
-    }else{
-      btntodo.innerHTML = '';
-      btndoing.innerHTML = '';
-      btndone.innerHTML = '';
 
-    }
-    // statistic date 
-    if(dataTask.length > 0){
-      stdate.innerHTML = ` <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${dataTask.length}</span>`
-      
-    }else{
-      stdate.innerHTML =``;
-     
-    }
-    // show statistic P1 P2 P3 
-    if(dataTask.length > 0){
-      stP1.innerHTML = ` <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${countP1}</span>`
-      stP2.innerHTML = ` <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${countP2}</span>`
-      stP3.innerHTML = ` <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${countP3}</span>`
-    }else{
-      stP1.innerHTML =``;
-      stP2.innerHTML =``;
-      stP3.innerHTML =``;
-    }
-}  
+  // show statistic tasks in todo ,dooing and done
+  if (dataTask.length > 0) {
+    btntodo.innerHTML = ` <h6> ${CountstoDo}</h6>  `;
+    btndoing.innerHTML = ` <h6> ${Countsdoing}</h6>  `;
+    btndone.innerHTML = ` <h6> ${Countsdone}</h6>  `;
+    // <i class="fa-solid fa-trash text-rose-500 cursor-pointer" onclick="DeletAll()"></i>
+  } else {
+    btntodo.innerHTML = "";
+    btndoing.innerHTML = "";
+    btndone.innerHTML = "";
+  }
+  // statistic date
+  if (dataTask.length > 0) {
+    stdate.innerHTML = ` <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${dataTask.length}</span>`;
+  } else {
+    stdate.innerHTML = ``;
+  }
+  // show statistic P1 P2 P3
+  if (dataTask.length > 0) {
+    stP1.innerHTML = ` <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${countP1}</span>`;
+    stP2.innerHTML = ` <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${countP2}</span>`;
+    stP3.innerHTML = ` <span class="bg-gray-700 text-white rounded-full px-1 py-1 text-xs">${countP3}</span>`;
+  } else {
+    stP1.innerHTML = ``;
+    stP2.innerHTML = ``;
+    stP3.innerHTML = ``;
+  }
+}
 
-// drag and drop 
+// drag and drop
 
 // delet tasks
-function deletdata(i){
-  dataTask.splice(i,1)
- localStorage.Tasks = JSON.stringify(dataTask);
- showdata();
+function deletdata(i) {
+  const taskElement = document.querySelector(`.task[data-index='${i}']`); // Sélectionne l'élément à supprimer
+
+  if (taskElement) {
+    taskElement.classList.add('fade-out'); // Ajoute la classe d'animation
+
+    setTimeout(() => {
+      dataTask.splice(i, 1); // Supprime la tâche du tableau
+      localStorage.Tasks = JSON.stringify(dataTask); // Met à jour le localStorage
+      showdata(); // Affiche à nouveau les données
+    }, 500); // Temps d'attente pour que l'animation se termine avant de supprimer l'élément
+  }
 }
+
 // delet all
-function DeletAll(){
+function DeletAll() {
   localStorage.clear();
   dataTask.splice(0);
   showdata();
@@ -262,38 +282,36 @@ function DeletAll(){
 function Updatedata(i) {
   let upStatus = document.getElementById(`status ${i}`).value;
   dataTask[i].status = upStatus;
-  localStorage.setItem('Tasks', JSON.stringify(dataTask));
+  localStorage.setItem("Tasks", JSON.stringify(dataTask));
   showdata();
 }
 //tri par Priority
 
 function tribypr() {
   dataTask.sort((a, b) => {
-      let priort = { P1: 1, P2: 2, P3: 3 };
-      return priort[a.priority] - priort[b.priority];
+    let priort = { P1: 1, P2: 2, P3: 3 };
+    return priort[a.priority] - priort[b.priority];
   });
   showdata();
 }
-//tri par date 
+//tri par date
 function tribydate() {
   dataTask.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
   showdata();
 }
 
-
 showdata();
 
-let Menmedia = document.getElementById('Menmedia')
-function openSortMenu(){
-  Menmedia.style.display = 'flex'
-  Menmedia.classList.toggle('active');
+let Menmedia = document.getElementById("Menmedia");
+function openSortMenu() {
+  Menmedia.style.display = "flex";
+  Menmedia.classList.toggle("active");
 }
-function closebars(){
-  Menmedia.style.display = 'none'
+function closebars() {
+  Menmedia.style.display = "none";
 }
 
 function toggleMenu() {
-  const SaMenu = document.querySelector('.SaMenu');
-  SaMenu.classList.toggle('active');
+  const SaMenu = document.querySelector(".SaMenu");
+  SaMenu.classList.toggle("active");
 }
-
