@@ -179,13 +179,7 @@
   }
 
 }
-@media (min-width: 650px){
-  #xmrk{
-    display: flex;
-      
-      
-    }
-}
+
 ::backdrop {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
