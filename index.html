@@ -30,7 +30,7 @@
     </div>
   </header>
   <!--Hover kamlo-->
-  <div class=" w-full h-screen grid grid-cols-[400px_1fr]" id="Container" onclick="closebars()">
+  <div class=" w-full h-screen grid grid-cols-[400px_1fr]" id="Container" >
     <!------ Menu ------------->
     <div class="bg-customPurple flex justify-center " id="Menmedia">
       <!------- card Menu ------------->
@@ -38,7 +38,7 @@
         <!----- Dev Menu -------->
         <div class="  rounded-xl flex justify-between p-2">
               
-          <h3 class="font-quicksand text-xl flex items-center justify-around">Sorting Menu  </h3>
+          <h3 class="font-quicksand text-xl flex items-center justify-between">Sorting Menu  <i class="fa-solid fa-x xmrk" onclick="closebars()"></i></h3>
          
              
         </div>
@@ -204,7 +204,7 @@
         <i class="fa-solid fa-x text-3xl cursor-pointer" onclick="closeModal()"></i>
       </div>
       
-      <form>
+      <form class="fomatr">
         <div class="mb-4">
           <label class="block  text-sm font-bold mb-2" for="title" >Title</label>
           <input 

@@ -106,8 +106,23 @@
   #barss:hover{
      transform: scale(1.05);
   }
+  .xmrk{
+    position: fixed ;
+    right: 8px;
+    font-size: 25px;
+    cursor: pointer;
+    
+  }
+  .xmrk:hover{
+    transform: scale(1.05);
+  }
+  #Ajoute{
+    width: 50%;
+   
+  }
+  
   #Menmedia{
-    display: none;
+    display: flex;
     background: transparent;
     height: 100vh;
     z-index: 88;
