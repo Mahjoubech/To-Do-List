@@ -152,7 +152,7 @@ html,
   -moz-tab-size: 4;
   /* 3 */
   -o-tab-size: 4;
-     tab-size: 4;
+  tab-size: 4;
   /* 3 */
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
@@ -247,7 +247,7 @@ left: 340px;
   border: 1px solid #ced4da; 
   border-radius: 40%; 
   padding: 0.5rem 1rem; 
-  outline: none; 
+  /* outline: none;  */
   font-size: 1rem; 
   transition: 0.5s;
 }

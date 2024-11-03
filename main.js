@@ -66,7 +66,6 @@ if (!dueDateRegex.test(dueDate.value)) {
 let today = new Date();
 today.setHours(0, 0, 0, 0);
 let inputDate = new Date(dueDate.value);
-let countToday = 0
 if (inputDate < today) {
   alert("The due date you entered has passed. Please enter a valid future date. !!!!")
     return; 
@@ -136,6 +135,7 @@ for(let i = 0 ; i < dataTask.length ; i++){
         <select class="shadow selcup  border rounded  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 
           id="status ${i}" onchange="Updatedata(${i})">
+                <option value="#" selected disabled> edit </option>
                 <option value="1" ${dataTask[i].status === '1' ? 'selected' : ''}>To do</option>
                 <option value="2" ${dataTask[i].status === '2' ? 'selected' : ''}>Doing</option>
                 <option value="3" ${dataTask[i].status === '3' ? 'selected' : ''}>Done</option>
